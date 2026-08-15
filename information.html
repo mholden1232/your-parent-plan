@@ -7,13 +7,18 @@
 <title>Information Hub — Your Parent Plan</title>
 <link href="styles.css" rel="stylesheet"/>
 </head>
-<body class="app-body">
+<body class="app-body" data-auth-required="true">
 <div class="app-shell">
 <aside class="app-sidebar">
 <a class="app-brand" href="index.html">Your Parent Plan</a>
 <div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b><span class="small">Prototype</span></div>
 <nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="active" href="information.html"><span>◎</span>  Parent Info</a><a class="" href="money.html"><span>$</span>  Money</a><a class="" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
-<div style="margin-top:22px;padding:0 10px"><a class="small" href="pricing.html">Plans &amp; pricing</a></div>
+
+
+<div style="margin-top:22px;padding:0 2px;border-top:1px solid #DEE5E0;padding-top:12px">
+<a class="small" href="pricing.html" style="padding-left:12px">Plans &amp; pricing</a>
+<button class="logout-link" data-logout="">Log out</button>
+</div>
 </aside>
 <div class="app-main">
 <header class="app-topbar">
@@ -26,8 +31,6 @@
 <h1>Parent Info</h1>
 <p>The important information your family may need, organized once.</p>
 </div>
-
-
 <section class="notice"><b>Prototype security:</b> this demo does not yet have production authentication, encryption guarantees, permissions, audit history or secure backups. Do not enter real passwords, Social Security numbers or sensitive banking credentials here.</section>
 <section class="grid2 section">
 <div class="card">
@@ -70,10 +73,6 @@
 </main></div>
 </div>
 <nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="active" href="information.html"><span class="ico">◎</span>Parent Info</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
-
-
-
-
 <script src="script.js"></script>
-</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script></body>
 </html>

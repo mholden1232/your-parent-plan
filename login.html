@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Welcome back — Your Parent Plan</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="auth-page">
+  <div class="auth-shell">
+    <a class="auth-logo" href="index.html">Your Parent Plan</a>
+    <section class="auth-card">
+      <div class="eyebrow">Private account</div>
+      <h1>Welcome back</h1>
+      <p>Sign in to open your Parent Plan.</p>
+      <div id="authMessage" class="auth-message"></div>
+      <label>Email</label>
+      <input id="email" type="email" autocomplete="email" placeholder="you@example.com">
+      <label>Password</label>
+      <input id="password" type="password" autocomplete="current-password" placeholder="At least 8 characters">
+      
+      <button id="signInBtn" class="btn primary">Sign in</button>
+      <div class="auth-switch">New here? <a href="signup.html"><b>Create an account</b></a></div>
+      <div class="auth-demo"><b>Prototype status:</b> the account screens are built, but real authentication will turn on after we connect your Supabase project. Until then, no private user data should be entered.</div>
+    </section>
+  </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>

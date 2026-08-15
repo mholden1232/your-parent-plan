@@ -104,3 +104,18 @@ textarea{min-height:80px}
   .app-bottom-nav a.active{color:var(--brand)}
   .app-bottom-nav .ico{display:block;font-size:19px;line-height:22px}
 }
+
+/* AUTH */
+.auth-page{min-height:100vh;background:var(--cream);display:grid;place-items:center;padding:24px}
+.auth-shell{width:min(100%,460px)}
+.auth-logo{display:block;text-align:center;font-size:24px;font-weight:900;color:var(--brand);text-decoration:none;margin-bottom:18px}
+.auth-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 18px 50px rgba(41,72,63,.10)}
+.auth-card h1{font-size:32px;margin:4px 0 8px}
+.auth-card .btn{width:100%;text-align:center;margin-top:12px}
+.auth-switch{text-align:center;margin-top:16px;font-size:14px}
+.auth-message{display:none;margin:12px 0;padding:11px 12px;border-radius:10px;font-size:13px}
+.auth-message.show{display:block}
+.auth-message.error{background:#FFF0EA;color:#8A4A23}
+.auth-message.success{background:#EDF6EF;color:#245A35}
+.auth-demo{background:#FFF8EF;border:1px solid #E8D9C1;border-radius:12px;padding:12px;margin-top:16px;font-size:12px;color:#6D5A3E}
+.logout-link{display:block;width:100%;text-align:left;background:transparent;border:0;color:var(--muted);font:inherit;font-size:13px;padding:10px 12px;cursor:pointer}

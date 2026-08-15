@@ -7,13 +7,18 @@
 <title>Scan &amp; Organize — Your Parent Plan</title>
 <link href="styles.css" rel="stylesheet"/>
 </head>
-<body class="app-body">
+<body class="app-body" data-auth-required="true">
 <div class="app-shell">
 <aside class="app-sidebar">
 <a class="app-brand" href="index.html">Your Parent Plan</a>
 <div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b><span class="small">Prototype</span></div>
 <nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="" href="information.html"><span>◎</span>  Parent Info</a><a class="" href="money.html"><span>$</span>  Money</a><a class="" href="care.html"><span>◇</span>  Care</a><a class="active" href="scan.html"><span>▣</span>  Scan</a></nav>
-<div style="margin-top:22px;padding:0 10px"><a class="small" href="pricing.html">Plans &amp; pricing</a></div>
+
+
+<div style="margin-top:22px;padding:0 2px;border-top:1px solid #DEE5E0;padding-top:12px">
+<a class="small" href="pricing.html" style="padding-left:12px">Plans &amp; pricing</a>
+<button class="logout-link" data-logout="">Log out</button>
+</div>
 </aside>
 <div class="app-main">
 <header class="app-topbar">
@@ -26,8 +31,6 @@
 <h1>Scan &amp; Organize</h1>
 <p>Photograph or upload paperwork, review what was extracted, then decide where it belongs.</p>
 </div>
-
-
 <p>In the real app, scan or upload paperwork, review what was extracted, then confirm where it belongs.</p>
 <section class="grid3 section">
 <div class="card"><h3>Pill bottle</h3><p class="small">Read medication name, strength, directions, prescriber, pharmacy and refill count exactly as printed on the label. Save to Important Health Information for reference only.</p></div>
@@ -47,10 +50,6 @@
 </main></div>
 </div>
 <nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="" href="information.html"><span class="ico">◎</span>Parent Info</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="active" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
-
-
-
-
 <script src="script.js"></script>
-</body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script></body>
 </html>
