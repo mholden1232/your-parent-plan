@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Care Options — Your Parent Plan</title>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="app-body">
+<div class="app-shell">
+<aside class="app-sidebar">
+<a class="app-brand" href="index.html">Your Parent Plan</a>
+<div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b><span class="small">Prototype</span></div>
+<nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="" href="information.html"><span>◎</span>  Parent Info</a><a class="" href="money.html"><span>$</span>  Money</a><a class="active" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
+<div style="margin-top:22px;padding:0 10px"><a class="small" href="pricing.html">Plans &amp; pricing</a></div>
+</aside>
+<div class="app-main">
+<header class="app-topbar">
+<div><b>Care Options</b><div class="context">Parent / Loved One</div></div>
+<a class="quick-action" href="scan.html">＋ Add / Scan</a>
+</header>
+<main class="app-content">
+<div style="margin-bottom:20px">
+<div class="eyebrow">Your Parent Plan</div>
+<h1>Care Options</h1>
+<p>Compare levels of care, true facility costs and what the parent can realistically afford.</p>
+</div>
+
+
+<section class="grid3 section">
+<div class="card"><h3>Independent living</h3><p class="small">Mostly independent, with community, meals, transportation and less home upkeep.</p></div>
+<div class="card"><h3>Assisted living</h3><p class="small">Housing plus help with everyday activities, medication support and personal care.</p></div>
+<div class="card"><h3>Memory care</h3><p class="small">Secure, dementia-focused support when cognition, wandering, safety or supervision needs increase.</p></div>
+</section>
+<section class="card section">
+<h2>When should we consider more help?</h2>
+<div class="check"><input type="checkbox"/>Falls or mobility concerns</div>
+<div class="check"><input type="checkbox"/>Medication mistakes</div>
+<div class="check"><input type="checkbox"/>Meals / weight loss / unsafe cooking</div>
+<div class="check"><input type="checkbox"/>Difficulty bathing, dressing or toileting</div>
+<div class="check"><input type="checkbox"/>Driving concerns</div>
+<div class="check"><input type="checkbox"/>Missed bills, scams or money-management problems</div>
+<div class="check"><input type="checkbox"/>Memory, wandering or nighttime confusion</div>
+<div class="check"><input type="checkbox"/>Family can no longer safely provide enough help</div>
+<p class="small">This is a planning discussion tool, not a diagnosis or recommendation of a specific level of care.</p>
+</section>
+<section class="card section">
+<h2>Facility Tour — What to Ask</h2>
+<div class="grid2">
+<div>
+<h3>Room &amp; board</h3>
+<div class="check"><input type="checkbox"/>Monthly room charge?</div>
+<div class="check"><input type="checkbox"/>Utilities included?</div>
+<div class="check"><input type="checkbox"/>Housekeeping / laundry included?</div>
+<div class="check"><input type="checkbox"/>One-time entrance / move-in fee?</div>
+<h3>Meals</h3>
+<div class="check"><input type="checkbox"/>How many meals are included?</div>
+<div class="check"><input type="checkbox"/>Special diets accommodated?</div>
+<div class="check"><input type="checkbox"/>Room delivery fee?</div>
+</div>
+<div>
+<h3>Care &amp; medication support</h3>
+<div class="check"><input type="checkbox"/>How are care levels priced?</div>
+<div class="check"><input type="checkbox"/>Medication management extra?</div>
+<div class="check"><input type="checkbox"/>Nurse on site? What hours?</div>
+<h3>Transportation / building</h3>
+<div class="check"><input type="checkbox"/>Medical appointment transportation?</div>
+<div class="check"><input type="checkbox"/>What is actually in the building?</div>
+<div class="check"><input type="checkbox"/>What happens if needs increase?</div>
+</div>
+</div>
+</section>
+<section class="section">
+<h2>Build the True Monthly Cost</h2>
+<p>Compare the levels of care separately. Enter every recurring cost the community quotes so you can see the real monthly total — not just the advertised room rate.</p>
+<div class="notice"><b>Important:</b> every facility packages services differently. A meal plan, medication management, personal-care level, transportation, laundry or memory-care surcharge may be included at one community and charged separately at another.</div>
+<div class="cost-scenarios">
+<div class="cost-card">
+<h3>Independent Living</h3>
+<p class="cost-note">Use this if the parent is mostly independent and primarily needs housing, meals, transportation or community amenities.</p>
+<div class="cost-row"><span>Base room / apartment</span><input class="ind-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Meal plan</span><input class="ind-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Housekeeping / laundry</span><input class="ind-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Transportation</span><input class="ind-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Utilities / cable / Wi-Fi</span><input class="ind-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Parking / pet / amenity fees</span><input class="ind-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Other monthly add-ons</span><input class="ind-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Second-person fee</span><input class="ind-cost" type="number" value="0"/></div><div class="cost-row"><span>Guest meals / room delivery</span><input class="ind-cost" type="number" value="0"/></div><div class="cost-row"><span>Salon / barber / personal services</span><input class="ind-cost" type="number" value="0"/></div><div class="cost-row"><span>Private companion / outside aide</span><input class="ind-cost" type="number" value="0"/></div><div class="cost-total"><span>Independent total</span><span id="indTotal">$0/mo</span></div>
+</div>
+<div class="cost-card">
+<h3>Assisted Living</h3>
+<p class="cost-note">Include the care-level fee and every service that is not included in base room and board.</p>
+<div class="cost-row"><span>Base room &amp; board</span><input class="assisted-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Care-level / personal assistance</span><input class="assisted-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Meals / dining add-ons</span><input class="assisted-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Medication management</span><input class="assisted-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Housekeeping / laundry</span><input class="assisted-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Transportation</span><input class="assisted-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Incontinence / supplies</span><input class="assisted-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Escort / mobility / extra help</span><input class="assisted-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Other monthly add-ons</span><input class="assisted-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Second-person fee</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Bathing / dressing / toileting assistance</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Transfers / mobility assistance</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Nighttime assistance / extra checks</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Special diet / room delivery / guest meals</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Additional nursing / wellness services</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Salon / barber / personal services</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Private-duty aide / companion</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-total"><span>Assisted total</span><span id="assistedTotal">$0/mo</span></div>
+</div>
+<div class="cost-card">
+<h3>Memory Care</h3>
+<p class="cost-note">Ask for today's all-in memory-care pricing even if it is not needed yet. This shows what a later transition could cost.</p>
+<div class="cost-row"><span>Base memory-care room</span><input class="memory-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Memory-care / care-level fee</span><input class="memory-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Meals / special dining support</span><input class="memory-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Medication management</span><input class="memory-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Personal care / incontinence</span><input class="memory-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Transportation</span><input class="memory-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Other monthly add-ons</span><input class="memory-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Second-person fee</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Enhanced supervision / nighttime care</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Transfers / mobility assistance</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Additional nursing / wellness services</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Special diet / room delivery / guest meals</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Salon / barber / personal services</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Private-duty aide / companion</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-total"><span>Memory-care total</span><span id="memoryTotal">$0/mo</span></div>
+</div>
+</div>
+</section>
+<section class="grid2 section">
+<div class="card">
+<h2>One-Time Costs</h2>
+<div class="cost-row"><span>Community / entrance fee</span><input class="one-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Deposit / move-in fee</span><input class="one-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Assessment fee</span><input class="one-cost" type="number" value="0"/></div>
+<div class="cost-row"><span>Other setup costs</span><input class="one-cost" type="number" value="0"/></div>
+<div class="cost-total"><span>One-time total</span><span id="oneTotal">$0</span></div>
+</div>
+<div class="card">
+<h2>Compare Against the Parent's Budget</h2>
+<p class="small">In production this will pull from the saved Money Snapshot automatically.</p>
+<label>Monthly amount available for care</label><input id="availableForCare" type="number" value="0"/>
+<label>Liquid savings available for care</label><input id="careSavingsMirror" type="number" value="0"/>
+<label>Which level are you evaluating?</label>
+<select id="careLevelSelect">
+<option value="ind">Independent Living</option>
+<option selected="" value="assisted">Assisted Living</option>
+<option value="memory">Memory Care</option>
+</select>
+<div class="notice" id="facilityResult">Enter the cost buckets and monthly budget above.</div>
+</div>
+</section>
+<section class="card section">
+<h2>See the Cost Jump Between Care Levels</h2>
+<table class="table">
+<tr><th>Level</th><th>Estimated monthly total</th><th>Difference vs. independent</th></tr>
+<tr><td>Independent living</td><td id="tableInd">$0/mo</td><td>—</td></tr>
+<tr><td>Assisted living</td><td id="tableAssisted">$0/mo</td><td id="assistedDiff">$0/mo</td></tr>
+<tr><td>Memory care</td><td id="tableMemory">$0/mo</td><td id="memoryDiff">$0/mo</td></tr>
+</table>
+</section>
+<section class="card section">
+<h2>Future Cost Projection</h2>
+<p>Today's price is only part of the decision. Model annual increases and a possible future move to a higher level of care.</p>
+<div class="grid2">
+<div>
+<label>Estimated annual price increase</label>
+<select id="annualIncrease">
+<option value="0.03">3%</option>
+<option selected="" value="0.05">5%</option>
+<option value="0.07">7%</option>
+<option value="0.10">10%</option>
+</select>
+</div>
+<div>
+<label>Projection horizon</label>
+<select id="projectionYears">
+<option value="1">1 year</option>
+<option selected="" value="3">3 years</option>
+<option value="5">5 years</option>
+</select>
+</div>
+</div>
+<table class="table" style="margin-top:14px">
+<tr><th>Level</th><th>Today</th><th id="futureHeader">In 3 years</th></tr>
+<tr><td>Independent living</td><td id="projIndNow">$0/mo</td><td id="projIndFuture">$0/mo</td></tr>
+<tr><td>Assisted living</td><td id="projAssNow">$0/mo</td><td id="projAssFuture">$0/mo</td></tr>
+<tr><td>Memory care</td><td id="projMemNow">$0/mo</td><td id="projMemFuture">$0/mo</td></tr>
+</table>
+<p class="small">Scenario planning only. Actual increases and future care needs will vary by community and individual circumstances.</p>
+</section>
+<section class="card section">
+<h2>Benefits &amp; Other Offsets</h2>
+<p class="small">Keep these separate from the facility's quoted price so you can see both the true cost and the amount the family may actually need to fund.</p>
+<div class="grid2">
+<div><label>Long-term-care insurance monthly benefit</label><input class="offset-input" id="ltcOffset" type="number" value="0"/></div>
+<div><label>Veterans / other monthly benefit</label><input class="offset-input" id="otherOffset" type="number" value="0"/></div>
+</div>
+<div class="result"><span class="small" style="color:#fff">Total monthly offsets</span><strong id="offsetTotal">$0/mo</strong></div>
+</section>
+<section class="card section">
+<h2>Cost Reality Check</h2>
+<p><b>Prototype benchmark:</b> CareScout 2025 Cost of Care Survey — U.S. national assisted-living median: <b>$6,200/month</b>. Annual benchmark, not live facility pricing.</p>
+<p class="small">Planned production feature: latest available state / metro benchmark, with source year and last-updated date displayed beside every number.</p>
+</section>
+</main></div>
+</div>
+<nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="" href="information.html"><span class="ico">◎</span>Parent Info</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="active" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

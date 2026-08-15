@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Money Snapshot — Your Parent Plan</title>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="app-body">
+<div class="app-shell">
+<aside class="app-sidebar">
+<a class="app-brand" href="index.html">Your Parent Plan</a>
+<div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b><span class="small">Prototype</span></div>
+<nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="" href="information.html"><span>◎</span>  Parent Info</a><a class="active" href="money.html"><span>$</span>  Money</a><a class="" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
+<div style="margin-top:22px;padding:0 10px"><a class="small" href="pricing.html">Plans &amp; pricing</a></div>
+</aside>
+<div class="app-main">
+<header class="app-topbar">
+<div><b>Money Snapshot</b><div class="context">Parent / Loved One</div></div>
+<a class="quick-action" href="scan.html">＋ Add / Scan</a>
+</header>
+<main class="app-content">
+<div style="margin-bottom:20px">
+<div class="eyebrow">Your Parent Plan</div>
+<h1>Money Snapshot</h1>
+<p>See dependable monthly resources, obligations, savings and care affordability.</p>
+</div>
+
+
+<p>Enter dependable monthly income and ongoing obligations. The calculator estimates how much may be available each month for future care.</p>
+<section class="grid2 section">
+<div class="card">
+<h2>Monthly income &amp; resources</h2>
+<div class="money-row"><span>Social Security</span><input class="income money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Pension</span><input class="income money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Retirement / investment income</span><input class="income money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Long-term-care insurance benefit</span><input class="income money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Rental / other recurring income</span><input class="income money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Other dependable income</span><input class="income money-input" type="number" value="0"/></div>
+</div>
+<div class="card">
+<h2>Ongoing monthly obligations</h2>
+<div class="money-row"><span>Housing / home costs</span><input class="expense money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Health / Medicare premiums</span><input class="expense money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Medical / prescriptions</span><input class="expense money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Insurance</span><input class="expense money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Debt payments</span><input class="expense money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Personal / other</span><input class="expense money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Safety cushion</span><input class="expense money-input" type="number" value="0"/></div>
+</div>
+</section>
+<section class="card section">
+<label>Liquid savings available for future care</label>
+<input class="money-input" id="careSavings" type="number" value="0"/>
+<div class="result">
+<span class="small" style="color:#fff">Estimated monthly amount available for care</span>
+<strong id="availableCare">$0/mo</strong>
+<span class="small" id="moneyExplanation" style="color:#fff">Add income and obligations above to calculate.</span>
+</div>
+</section>
+<section class="notice">Planning tool only. This is a household affordability snapshot, not individualized financial advice.</section>
+</main></div>
+</div>
+<nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="" href="information.html"><span class="ico">◎</span>Parent Info</a><a class="active" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
