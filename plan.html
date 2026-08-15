@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>My Parent Plan — Your Parent Plan</title>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="app-body">
+<div class="app-shell">
+<aside class="app-sidebar">
+<a class="app-brand" href="index.html">Your Parent Plan</a>
+<div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b><span class="small">Prototype</span></div>
+<nav class="app-nav"><a class="active" href="plan.html"><span>⌂</span>  My Plan</a><a class="" href="information.html"><span>◎</span>  Parent Info</a><a class="" href="money.html"><span>$</span>  Money</a><a class="" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
+<div style="margin-top:22px;padding:0 10px"><a class="small" href="pricing.html">Plans &amp; pricing</a></div>
+</aside>
+<div class="app-main">
+<header class="app-topbar">
+<div><b>My Plan</b><div class="context">Parent / Loved One</div></div>
+<a class="quick-action" href="scan.html">＋ Add / Scan</a>
+</header>
+<main class="app-content">
+<div style="margin-bottom:20px">
+<div class="eyebrow">Your Parent Plan</div>
+<h1>My Plan</h1>
+<p>Everything you need to help manage your parent’s needs, organized in one place. See what’s complete, what still needs attention, and what to do next.</p>
+</div>
+<section class="section">
+<div class="grid3">
+<a class="tilelink" href="information.html"><div class="mobile-card"><span class="status">PARENT INFO</span><h3>Core records</h3><p class="small">Contacts, legal, insurance and important health information.</p></div></a>
+<a class="tilelink" href="money.html"><div class="mobile-card"><span class="status">MONEY</span><h3>Money Snapshot</h3><p class="small">Income, obligations, savings and care budget.</p></div></a>
+<a class="tilelink" href="care.html"><div class="mobile-card"><span class="status">CARE</span><h3>Care Options</h3><p class="small">True facility costs across independent, assisted and memory care.</p></div></a>
+</div>
+</section>
+<section class="grid2">
+<div class="card">
+<label>Parent / loved one's name</label>
+<input placeholder="Name" type="text"/>
+<h3>Preparedness</h3>
+<div class="score" id="preparednessScore">0%</div>
+<div class="progress"><div id="preparednessBar" style="width:0%"></div></div>
+<p class="small">Your score updates as you complete preparedness items below.</p>
+</div>
+<div class="card">
+<h2>Your Next 3 Things</h2>
+<p class="small">Prioritized from missing or incomplete checklist items and Core Records.</p>
+
+
+
+<div id="nextThreeList"><div class="mini">Complete or update the checklist to see your next priorities.</div></div></div>
+</section>
+<section class="section card">
+<h2>Preparedness Checklist</h2>
+<div class="check"><input class="prep-check" data-label="Will located and reviewed" type="checkbox"/>Will located and reviewed</div>
+<div class="check"><input class="prep-check" data-label="Financial power of attorney located" type="checkbox"/>Financial power of attorney located</div>
+<div class="check"><input class="prep-check" data-label="Health-care proxy / medical POA located" type="checkbox"/>Health-care proxy / medical POA located</div>
+<div class="check"><input class="prep-check" data-label="Advance directive / living will located" type="checkbox"/>Advance directive / living will located</div>
+<div class="check"><input class="prep-check" data-label="Beneficiaries reviewed" type="checkbox"/>Beneficiaries reviewed</div>
+<div class="check"><input class="prep-check" data-label="Banks / investment firms identified" type="checkbox"/>Banks / investment firms identified</div>
+<div class="check"><input class="prep-check" data-label="Insurance policies identified" type="checkbox"/>Insurance policies identified</div>
+<div class="check"><input class="prep-check" data-label="Medication list current for reference" type="checkbox"/>Medication list current for reference</div>
+<div class="check"><input class="prep-check" data-label="Doctors / pharmacy recorded" type="checkbox"/>Doctors / pharmacy recorded</div>
+<div class="check"><input class="prep-check" data-label="Important document locations known" type="checkbox"/>Important document locations known</div>
+<div class="check"><input class="prep-check" data-label="Future living-care options discussed" type="checkbox"/>Future living-care options discussed</div>
+</section>
+<section class="section grid3">
+<a class="tilelink" href="information.html"><div class="card"><b>Information Hub</b><p class="small">Core records and document organization.</p></div></a>
+<a class="tilelink" href="money.html"><div class="card"><b>Money Snapshot</b><p class="small">See what may be available for care.</p></div></a>
+<a class="tilelink" href="care.html"><div class="card"><b>Care Options</b><p class="small">Compare facilities and affordability.</p></div></a>
+</section>
+</main></div>
+</div>
+<nav class="app-bottom-nav"><a class="active" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="" href="information.html"><span class="ico">◎</span>Parent Info</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
+<script src="script.js"></script>
+</body>
+</html>
