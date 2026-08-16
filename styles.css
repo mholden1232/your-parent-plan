@@ -282,3 +282,16 @@ textarea{min-height:80px}
   .plus-feature-note{align-items:flex-start;flex-wrap:wrap}
   .plus-feature-note .btn{margin-left:35px}
 }
+
+
+/* FREE + PLUS BALANCE */
+.plus-feature-note.free-plus{
+  background:#F5FAF6;
+  border-color:#CFE0D4;
+  border-left-color:#5D8F6D;
+}
+.plus-feature-note.free-plus .plus-key{
+  width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;
+  background:#DDEEE2;color:#2F6843;font-weight:900;
+}
