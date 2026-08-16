@@ -225,3 +225,60 @@ textarea{min-height:80px}
   .vault-entry-grid{grid-template-columns:1fr}
   .vault-toolbar-actions{width:100%}.vault-toolbar-actions .btn{flex:1;text-align:center}
 }
+
+
+/* Password Vault navigation */
+.app-nav a[data-vault-nav]{position:relative}
+.app-nav a[data-vault-nav] span[data-vault-icon]{min-width:22px;display:inline-block}
+
+
+/* PLUS / BUY-UP VISIBILITY */
+.app-nav a{display:flex;align-items:center;gap:0}
+.app-nav .nav-plus-badge{
+  margin-left:auto;
+  background:#F3D88F;
+  color:#5E4613;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:999px;
+  padding:3px 7px;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.06em;
+  line-height:1.1;
+}
+.app-nav .nav-plus-badge.locked{background:#F6C66C}
+.feature-plus-badge{
+  display:inline-block;
+  vertical-align:middle;
+  background:#FFF1C8;
+  color:#6C4A10;
+  border:1px solid #E8C978;
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.05em;
+  white-space:nowrap;
+}
+.feature-plus-badge.locked{background:#FFE7C4}
+.plus-feature-note{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  background:#FFF7E4;
+  border:1px solid #EACF8A;
+  border-left:5px solid #D4A13C;
+  border-radius:14px;
+  padding:13px 15px;
+  margin:14px 0 18px;
+}
+.plus-feature-note.locked{background:#FFF4E8;border-left-color:#D77A4D}
+.plus-feature-note .plus-key{font-size:23px}
+.plus-feature-note b{display:block;color:var(--brand);margin-bottom:2px}
+.plus-feature-note span:not(.plus-key){display:block;color:var(--muted);font-size:12px}
+.plus-feature-note .btn{margin-left:auto;white-space:nowrap}
+@media(max-width:700px){
+  .app-nav .nav-plus-badge{font-size:8px;padding:3px 6px}
+  .plus-feature-note{align-items:flex-start;flex-wrap:wrap}
+  .plus-feature-note .btn{margin-left:35px}
+}
