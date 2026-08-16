@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Information Hub — Your Parent Plan</title>
+<title>Essentials — Your Parent Plan</title>
 <link href="styles.css" rel="stylesheet"/>
 </head>
 <body class="app-body" data-auth-required="true">
@@ -12,7 +12,7 @@
 <aside class="app-sidebar">
 <a class="app-brand" href="index.html">Your Parent Plan</a>
 <div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b></div>
-<nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="active" href="information.html"><span>◎</span>  Parent Info</a><a class="" href="money.html"><span>$</span>  Money</a><a class="" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
+<nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="active" href="information.html"><span>◎</span>  Essentials</a><a class="" href="money.html"><span>$</span>  Money</a><a class="" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
 <div style="margin-top:22px;padding:0 2px;border-top:1px solid #DEE5E0;padding-top:12px">
 <a class="small" href="pricing.html" style="padding-left:12px">Plans &amp; pricing</a>
 <button class="logout-link" data-logout="">Log out</button>
@@ -20,52 +20,81 @@
 </aside>
 <div class="app-main">
 <header class="app-topbar">
-<div><b>Parent Info</b><div class="context">Parent / Loved One</div></div>
+<div><b>Essentials</b><div class="context">Parent / Loved One</div></div>
 <a class="quick-action" href="scan.html">＋ Add / Scan</a>
 </header>
-<main class="app-content"><section class="app-page-hero"><div class="app-page-hero-copy"><div class="page-section-label">THE DETAILS YOUR FAMILY MAY NEED</div><h1>Parent Info</h1><p>Keep the important information about your parent organized and easier to find when someone needs it.</p><div class="page-help"><div class="page-help-icon">✓</div><div><b>How this helps</b><span>Instead of hunting through papers, texts and memory, your family has one organized place for core records and Health &amp; Emergency Basics.</span></div></div></div><div class="app-page-hero-img"><img alt="Parent Info planning visual" src="parent-info-hero.png"/></div></section><section class="feature-intro-row"><div class="feature-intro-card"><b>Find details faster</b><span>Keep key contacts, insurance and legal information together.</span></div><div class="feature-intro-card coral"><b>Be ready for the unexpected</b><span>Emergency basics are easier to locate when time matters.</span></div><div class="feature-intro-card gold"><b>Reduce repeat questions</b><span>Family members can work from the same organized information.</span></div></section>
-
+<main class="app-content">
+<section class="app-page-hero">
+<div class="app-page-hero-copy">
+<div class="page-section-label">THE THINGS YOUR FAMILY MAY NEED TO FIND FAST</div>
+<h1>Essentials</h1>
+<p>Keep the important emergency, legal, insurance, people and digital-access information together—without turning this into another giant intake form.</p>
+<div class="page-help"><div class="page-help-icon">✓</div><div><b>How this helps</b><span>Your family can quickly see what exists, where it is, who to call and what still needs attention.</span></div></div>
+</div>
+<div class="app-page-hero-img"><img alt="Family organizing important information together" src="parent-info-hero.png"/></div>
+</section>
+<section class="feature-intro-row">
+<div class="feature-intro-card"><b>Emergency</b><span>The few details someone may need quickly when time matters.</span></div>
+<div class="feature-intro-card coral"><b>Legal &amp; Insurance</b><span>Know what exists and where the important documents are located.</span></div>
+<div class="feature-intro-card gold"><b>Digital Life</b><span>Paid members can securely organize website logins and passwords in one dedicated vault.</span></div>
+</section>
 <section class="grid2 section">
 <div class="card">
-<h2>Core Records</h2>
-<label>Full legal name</label><input type="text"/>
-<label>Date of birth</label><input type="date"/>
+<h2>Emergency Basics</h2>
 <label>Emergency contact</label><textarea></textarea>
 <label>Primary doctor</label><textarea></textarea>
 <label>Pharmacy</label><textarea></textarea>
-<label>Health-care proxy / medical POA</label><textarea></textarea>
-</div>
-<div class="card">
-<h2>Health &amp; Emergency Basics</h2>
-<label>Current medications</label><textarea placeholder="Reference only: name, dosage, prescriber, pharmacy"></textarea>
-<p class="small"><b>Medication reference:</b> keep a current list here for quick access when needed. No dose tracking, medication schedules or refill management.</p>
-<label>Allergies</label><textarea></textarea>
-<label>Major conditions</label><textarea></textarea>
-<label>Health / Medicare insurance</label><textarea></textarea>
+<label>Current medications</label><textarea placeholder="Name, dosage, prescriber and pharmacy"></textarea>
+<label>Allergies / important conditions</label><textarea></textarea>
 <label>Preferred hospital</label><textarea></textarea>
 </div>
-</section>
-<section class="grid3 section">
-<div class="card"><h3>Legal</h3><p class="small">Will, POA, advance directive, trust, document locations.</p></div>
-<div class="card"><h3>Money</h3><p class="small">Banks, investments, pensions, debts, recurring obligations.</p></div>
-<div class="card"><h3>Insurance</h3><p class="small">Health, life, long-term care, home and auto policies.</p></div>
+<div class="card">
+<h2>Legal &amp; Insurance</h2>
+<label>Health-care proxy / medical POA</label><textarea placeholder="Who has it and where is the document?"></textarea>
+<label>Financial power of attorney</label><textarea placeholder="Who has it and where is the document?"></textarea>
+<label>Will / trust / advance directive</label><textarea placeholder="What exists and where is it kept?"></textarea>
+<label>Health / Medicare insurance</label><textarea></textarea>
+<label>Long-term-care / life insurance</label><textarea></textarea>
+</div>
 </section>
 <section class="card section">
-<h2>2 A.M. Emergency View</h2>
-<p class="small">This view is designed to pull from the same Core Records and Health &amp; Emergency Basics so important details are easier to find quickly.</p>
-<table class="table">
-<tr><th>Information</th><th>Source</th></tr>
-<tr><td>Full legal name + date of birth</td><td>Core Records</td></tr>
-<tr><td>Emergency contact</td><td>Core Records</td></tr>
-<tr><td>Doctor + pharmacy</td><td>Core Records</td></tr>
-<tr><td>Current medications</td><td>Health &amp; Emergency Basics</td></tr>
-<tr><td>Health insurance</td><td>Insurance</td></tr>
-<tr><td>Legal document locations</td><td>Legal</td></tr>
-</table>
+<div class="facility-toolbar">
+<div>
+<div class="page-section-label">IMPORTANT PEOPLE</div>
+<h2 style="margin:4px 0">Who would we call?</h2>
+<p class="small">Attorney, financial advisor, insurance agent, accountant, doctors, trusted neighbors or anyone else your family may need.</p>
+</div>
+<button class="btn secondary" type="button">＋ Add Person</button>
+</div>
+<div class="grid3" style="margin-top:14px">
+<div class="question-card"><b>Name &amp; role</b><p class="small">Who they are and why your family might need them.</p></div>
+<div class="question-card"><b>Contact information</b><p class="small">Phone, email and organization.</p></div>
+<div class="question-card"><b>What they handle</b><p class="small">A quick note so siblings know when to call this person.</p></div>
+</div>
+</section>
+<section class="card section vault-card">
+<div class="vault-head">
+<div>
+<div class="paid-badge">PLUS MEMBERSHIP</div>
+<h2>Digital Accounts &amp; Passwords</h2>
+<p>Keep the website logins and passwords your family may eventually need organized in one dedicated place.</p>
+</div>
+<div class="vault-lock">🔒</div>
+</div>
+<div aria-hidden="true" class="vault-preview">
+<div class="vault-row"><div><b>Email</b><span>Gmail / primary family email</span></div><div>••••••••••••</div></div>
+<div class="vault-row"><div><b>Medicare</b><span>Online account</span></div><div>••••••••••••</div></div>
+<div class="vault-row"><div><b>Utilities</b><span>Electric / gas / water</span></div><div>••••••••••••</div></div>
+</div>
+<div class="vault-gate">
+<h3>Unlock the Password Vault</h3>
+<p class="small">Digital Accounts &amp; Passwords is not included with the free account. Choose a monthly or annual membership to unlock this feature.</p>
+<a class="btn primary" href="pricing.html">See membership options</a>
+</div>
 </section>
 </main></div>
 </div>
-<nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="active" href="information.html"><span class="ico">◎</span>Parent Info</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
+<nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="active" href="information.html"><span class="ico">◎</span>  Essentials</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
 <script src="script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script></body>
 </html>
