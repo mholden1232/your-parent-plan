@@ -1,203 +1,193 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Care Options — Your Parent Plan</title>
 <link href="styles.css" rel="stylesheet"/>
+<style>
+.facility-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.facility-list{display:grid;gap:14px;margin-top:16px}
+.facility-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.facility-summary{padding:16px;display:grid;grid-template-columns:1.4fr repeat(3,.8fr) auto;gap:12px;align-items:center}
+.facility-name{font-size:18px;font-weight:900;color:var(--brand)}
+.facility-cost strong{display:block;font-size:17px}.facility-cost span{font-size:11px;color:var(--muted)}
+.facility-actions{display:flex;gap:6px;align-items:center}
+.icon-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
+.favorite.active{background:#fff4e8}
+.facility-detail{display:none;border-top:1px solid var(--line);padding:18px;background:#fbfcfb}
+.facility-card.open .facility-detail{display:block}
+.cost-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cost-panel{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+.cost-panel h3{margin-top:0}.cost-row{display:grid;grid-template-columns:1fr 110px;gap:8px;align-items:center;margin:8px 0}
+.cost-row input{margin:0}
+.pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.compare-table{width:100%;border-collapse:collapse}.compare-table th,.compare-table td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}
+.compare-table th{font-size:12px;color:var(--muted)}
+.empty-state{text-align:center;padding:28px;border:1px dashed var(--line);border-radius:16px;background:#fff}
+@media(max-width:820px){
+ .facility-summary{grid-template-columns:1fr 1fr}.facility-name{grid-column:1/-1}.facility-actions{grid-column:1/-1}
+ .cost-grid,.pc-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body class="app-body" data-auth-required="true">
 <div class="app-shell">
 <aside class="app-sidebar">
 <a class="app-brand" href="index.html">Your Parent Plan</a>
-<div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b><span class="small">Prototype</span></div>
-<nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="" href="information.html"><span>◎</span>  Parent Info</a><a class="" href="money.html"><span>$</span>  Money</a><a class="active" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
-
-
-<div style="margin-top:22px;padding:0 2px;border-top:1px solid #DEE5E0;padding-top:12px">
+<div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b></div>
+<nav class="app-nav"><a href="plan.html"><span>⌂</span>&nbsp;&nbsp;My Plan</a><a href="information.html"><span>◎</span>&nbsp;&nbsp;Parent Info</a><a href="money.html"><span>$</span>&nbsp;&nbsp;Money</a><a class="active" href="care.html"><span>◇</span>&nbsp;&nbsp;Care</a><a href="scan.html"><span>▣</span>&nbsp;&nbsp;Scan</a></nav>
+<div style="margin-top:22px;padding:12px 2px 0;border-top:1px solid #DEE5E0">
 <a class="small" href="pricing.html" style="padding-left:12px">Plans &amp; pricing</a>
-<button class="logout-link" data-logout="">Log out</button>
+<button class="logout-link" data-logout>Log out</button>
 </div>
 </aside>
 <div class="app-main">
 <header class="app-topbar">
 <div><b>Care Options</b><div class="context">Parent / Loved One</div></div>
-<a class="quick-action" href="scan.html">＋ Add / Scan</a>
+<a class="quick-action" href="#" id="topAddFacility">＋ Add Facility</a>
 </header>
 <main class="app-content">
 <div style="margin-bottom:20px">
 <div class="eyebrow">Your Parent Plan</div>
-<h1>Care Options</h1>
-<p>Compare levels of care, true facility costs and what the parent can realistically afford.</p>
+<h1>Compare Care Options</h1>
+<p>Add each facility once, build its true monthly cost, and keep the pros, cons and important notes beside the numbers.</p>
 </div>
-<section class="grid3 section">
-<div class="card"><h3>Independent living</h3><p class="small">Mostly independent, with community, meals, transportation and less home upkeep.</p></div>
-<div class="card"><h3>Assisted living</h3><p class="small">Housing plus help with everyday activities, medication support and personal care.</p></div>
-<div class="card"><h3>Memory care</h3><p class="small">Secure, dementia-focused support when cognition, wandering, safety or supervision needs increase.</p></div>
-</section>
+
 <section class="card section">
-<h2>When should we consider more help?</h2>
-<div class="check"><input type="checkbox"/>Falls or mobility concerns</div>
-<div class="check"><input type="checkbox"/>Medication mistakes</div>
-<div class="check"><input type="checkbox"/>Meals / weight loss / unsafe cooking</div>
-<div class="check"><input type="checkbox"/>Difficulty bathing, dressing or toileting</div>
-<div class="check"><input type="checkbox"/>Driving concerns</div>
-<div class="check"><input type="checkbox"/>Missed bills, scams or money-management problems</div>
-<div class="check"><input type="checkbox"/>Memory, wandering or nighttime confusion</div>
-<div class="check"><input type="checkbox"/>Family can no longer safely provide enough help</div>
-<p class="small">This is a planning discussion tool, not a diagnosis or recommendation of a specific level of care.</p>
+<div class="facility-toolbar">
+<div><h2 style="margin:0">Facilities</h2><p class="small" style="margin:4px 0 0">Save as many options as you want and expand any facility for the details.</p></div>
+<button class="btn primary" id="addFacility">＋ Add Facility</button>
+</div>
+<div id="facilityList" class="facility-list"></div>
 </section>
+
 <section class="card section">
-<h2>Facility Tour — What to Ask</h2>
-<div class="grid2">
-<div>
-<h3>Room &amp; board</h3>
-<div class="check"><input type="checkbox"/>Monthly room charge?</div>
-<div class="check"><input type="checkbox"/>Utilities included?</div>
-<div class="check"><input type="checkbox"/>Housekeeping / laundry included?</div>
-<div class="check"><input type="checkbox"/>One-time entrance / move-in fee?</div>
-<h3>Meals</h3>
-<div class="check"><input type="checkbox"/>How many meals are included?</div>
-<div class="check"><input type="checkbox"/>Special diets accommodated?</div>
-<div class="check"><input type="checkbox"/>Room delivery fee?</div>
+<div class="facility-toolbar">
+<div><h2 style="margin:0">Compare Facilities</h2><p class="small" style="margin:4px 0 0">A condensed view of cost, pros and cons.</p></div>
 </div>
-<div>
-<h3>Care &amp; medication support</h3>
-<div class="check"><input type="checkbox"/>How are care levels priced?</div>
-<div class="check"><input type="checkbox"/>Medication management extra?</div>
-<div class="check"><input type="checkbox"/>Nurse on site? What hours?</div>
-<h3>Transportation / building</h3>
-<div class="check"><input type="checkbox"/>Medical appointment transportation?</div>
-<div class="check"><input type="checkbox"/>What is actually in the building?</div>
-<div class="check"><input type="checkbox"/>What happens if needs increase?</div>
-</div>
-</div>
-</section>
-<section class="section">
-<h2>Build the True Monthly Cost</h2>
-<p>Compare the levels of care separately. Enter every recurring cost the community quotes so you can see the real monthly total — not just the advertised room rate.</p>
-<div class="notice"><b>Important:</b> every facility packages services differently. A meal plan, medication management, personal-care level, transportation, laundry or memory-care surcharge may be included at one community and charged separately at another.</div>
-<div class="cost-scenarios">
-<div class="cost-card">
-<h3>Independent Living</h3>
-<p class="cost-note">Use this if the parent is mostly independent and primarily needs housing, meals, transportation or community amenities.</p>
-<div class="cost-row"><span>Base room / apartment</span><input class="ind-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Meal plan</span><input class="ind-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Housekeeping / laundry</span><input class="ind-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Transportation</span><input class="ind-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Utilities / cable / Wi-Fi</span><input class="ind-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Parking / pet / amenity fees</span><input class="ind-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Other monthly add-ons</span><input class="ind-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Second-person fee</span><input class="ind-cost" type="number" value="0"/></div><div class="cost-row"><span>Guest meals / room delivery</span><input class="ind-cost" type="number" value="0"/></div><div class="cost-row"><span>Salon / barber / personal services</span><input class="ind-cost" type="number" value="0"/></div><div class="cost-row"><span>Private companion / outside aide</span><input class="ind-cost" type="number" value="0"/></div><div class="cost-total"><span>Independent total</span><span id="indTotal">$0/mo</span></div>
-</div>
-<div class="cost-card">
-<h3>Assisted Living</h3>
-<p class="cost-note">Include the care-level fee and every service that is not included in base room and board.</p>
-<div class="cost-row"><span>Base room &amp; board</span><input class="assisted-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Care-level / personal assistance</span><input class="assisted-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Meals / dining add-ons</span><input class="assisted-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Medication management</span><input class="assisted-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Housekeeping / laundry</span><input class="assisted-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Transportation</span><input class="assisted-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Incontinence / supplies</span><input class="assisted-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Escort / mobility / extra help</span><input class="assisted-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Other monthly add-ons</span><input class="assisted-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Second-person fee</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Bathing / dressing / toileting assistance</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Transfers / mobility assistance</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Nighttime assistance / extra checks</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Special diet / room delivery / guest meals</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Additional nursing / wellness services</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Salon / barber / personal services</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-row"><span>Private-duty aide / companion</span><input class="assisted-cost" type="number" value="0"/></div><div class="cost-total"><span>Assisted total</span><span id="assistedTotal">$0/mo</span></div>
-</div>
-<div class="cost-card">
-<h3>Memory Care</h3>
-<p class="cost-note">Ask for today's all-in memory-care pricing even if it is not needed yet. This shows what a later transition could cost.</p>
-<div class="cost-row"><span>Base memory-care room</span><input class="memory-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Memory-care / care-level fee</span><input class="memory-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Meals / special dining support</span><input class="memory-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Medication management</span><input class="memory-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Personal care / incontinence</span><input class="memory-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Transportation</span><input class="memory-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Other monthly add-ons</span><input class="memory-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Second-person fee</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Enhanced supervision / nighttime care</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Transfers / mobility assistance</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Additional nursing / wellness services</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Special diet / room delivery / guest meals</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Salon / barber / personal services</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-row"><span>Private-duty aide / companion</span><input class="memory-cost" type="number" value="0"/></div><div class="cost-total"><span>Memory-care total</span><span id="memoryTotal">$0/mo</span></div>
-</div>
-</div>
-</section>
-<section class="grid2 section">
-<div class="card">
-<h2>One-Time Costs</h2>
-<div class="cost-row"><span>Community / entrance fee</span><input class="one-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Deposit / move-in fee</span><input class="one-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Assessment fee</span><input class="one-cost" type="number" value="0"/></div>
-<div class="cost-row"><span>Other setup costs</span><input class="one-cost" type="number" value="0"/></div>
-<div class="cost-total"><span>One-time total</span><span id="oneTotal">$0</span></div>
-</div>
-<div class="card">
-<h2>Compare Against the Parent's Budget</h2>
-<p class="small">In production this will pull from the saved Money Snapshot automatically.</p>
-<label>Monthly amount available for care</label><input id="availableForCare" type="number" value="0"/>
-<label>Liquid savings available for care</label><input id="careSavingsMirror" type="number" value="0"/>
-<label>Which level are you evaluating?</label>
-<select id="careLevelSelect">
-<option value="ind">Independent Living</option>
-<option selected="" value="assisted">Assisted Living</option>
-<option value="memory">Memory Care</option>
-</select>
-<div class="notice" id="facilityResult">Enter the cost buckets and monthly budget above.</div>
-</div>
-</section>
-<section class="card section">
-<h2>See the Cost Jump Between Care Levels</h2>
-<table class="table">
-<tr><th>Level</th><th>Estimated monthly total</th><th>Difference vs. independent</th></tr>
-<tr><td>Independent living</td><td id="tableInd">$0/mo</td><td>—</td></tr>
-<tr><td>Assisted living</td><td id="tableAssisted">$0/mo</td><td id="assistedDiff">$0/mo</td></tr>
-<tr><td>Memory care</td><td id="tableMemory">$0/mo</td><td id="memoryDiff">$0/mo</td></tr>
+<div style="overflow:auto;margin-top:12px">
+<table class="compare-table">
+<thead><tr><th>Facility</th><th>Independent</th><th>Assisted</th><th>Memory Care</th><th>Pros</th><th>Cons</th></tr></thead>
+<tbody id="compareBody"></tbody>
 </table>
+</div>
 </section>
+
 <section class="card section">
-<h2>Future Cost Projection</h2>
-<p>Today's price is only part of the decision. Model annual increases and a possible future move to a higher level of care.</p>
+<h2>Future Cost Assumptions</h2>
 <div class="grid2">
-<div>
-<label>Estimated annual price increase</label>
-<select id="annualIncrease">
-<option value="0.03">3%</option>
-<option selected="" value="0.05">5%</option>
-<option value="0.07">7%</option>
-<option value="0.10">10%</option>
-</select>
+<div><label>Estimated annual price increase</label>
+<select id="annualIncrease"><option value=".03">3%</option><option value=".05" selected>5%</option><option value=".07">7%</option><option value=".10">10%</option></select></div>
+<div><label>Projection horizon</label>
+<select id="projectionYears"><option value="1">1 year</option><option value="3" selected>3 years</option><option value="5">5 years</option></select></div>
 </div>
-<div>
-<label>Projection horizon</label>
-<select id="projectionYears">
-<option value="1">1 year</option>
-<option selected="" value="3">3 years</option>
-<option value="5">5 years</option>
-</select>
-</div>
-</div>
-<table class="table" style="margin-top:14px">
-<tr><th>Level</th><th>Today</th><th id="futureHeader">In 3 years</th></tr>
-<tr><td>Independent living</td><td id="projIndNow">$0/mo</td><td id="projIndFuture">$0/mo</td></tr>
-<tr><td>Assisted living</td><td id="projAssNow">$0/mo</td><td id="projAssFuture">$0/mo</td></tr>
-<tr><td>Memory care</td><td id="projMemNow">$0/mo</td><td id="projMemFuture">$0/mo</td></tr>
-</table>
-<p class="small">Scenario planning only. Actual increases and future care needs will vary by community and individual circumstances.</p>
+<p class="small">Each facility detail shows a projected monthly cost using these assumptions. Actual rates and future care needs will vary.</p>
 </section>
-<section class="card section">
-<h2>Benefits &amp; Other Offsets</h2>
-<p class="small">Keep these separate from the facility's quoted price so you can see both the true cost and the amount the family may actually need to fund.</p>
-<div class="grid2">
-<div><label>Long-term-care insurance monthly benefit</label><input class="offset-input" id="ltcOffset" type="number" value="0"/></div>
-<div><label>Veterans / other monthly benefit</label><input class="offset-input" id="otherOffset" type="number" value="0"/></div>
+</main>
 </div>
-<div class="result"><span class="small" style="color:#fff">Total monthly offsets</span><strong id="offsetTotal">$0/mo</strong></div>
-</section>
-<section class="card section">
-<h2>Cost Reality Check</h2>
-<p><b>Prototype benchmark:</b> CareScout 2025 Cost of Care Survey — U.S. national assisted-living median: <b>$6,200/month</b>. Annual benchmark, not live facility pricing.</p>
-<p class="small">Planned production feature: latest available state / metro benchmark, with source year and last-updated date displayed beside every number.</p>
-</section>
-</main></div>
 </div>
-<nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="" href="information.html"><span class="ico">◎</span>Parent Info</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="active" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
+<nav class="app-bottom-nav"><a href="plan.html"><span class="ico">⌂</span>My Plan</a><a href="information.html"><span class="ico">◎</span>Parent Info</a><a href="money.html"><span class="ico">$</span>Money</a><a class="active" href="care.html"><span class="ico">◇</span>Care</a><a href="scan.html"><span class="ico">▣</span>Scan</a></nav>
+
+<script>
+(function(){
+const KEY='ypp-facilities-v1';
+const buckets={
+ independent:['Base room / apartment','Second-person fee','Meals / dining add-ons','Housekeeping / laundry','Transportation','Utilities / Wi-Fi','Parking / pet / amenities','Private companion / outside aide','Other monthly add-ons'],
+ assisted:['Room & board','Care-level fee','Second-person fee','Bathing / dressing / toileting','Transfers / mobility','Nighttime help / extra checks','Meals / special diet','Medication management','Housekeeping / laundry','Transportation','Incontinence / personal supplies','Additional nursing / wellness','Private-duty aide / companion','Other monthly add-ons'],
+ memory:['Base room','Memory-care / care-level fee','Second-person fee','Enhanced supervision / nighttime care','Transfers / mobility','Meals / special diet','Medication management','Personal care / incontinence','Housekeeping / laundry','Transportation','Additional nursing / wellness','Private-duty aide / companion','Other monthly add-ons']
+};
+let facilities=load();
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}}
+function save(){localStorage.setItem(KEY,JSON.stringify(facilities))}
+function money(n){return '$'+Math.round(Number(n)||0).toLocaleString()}
+function total(f,l){return Object.values((f.costs||{})[l]||{}).reduce((a,b)=>a+(Number(b)||0),0)}
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function newFacility(){
+ return {id:Date.now(),name:'New Facility',favorite:false,pros:'',cons:'',notes:'',oneTime:0,costs:{independent:{},assisted:{},memory:{}}};
+}
+function costPanel(f,level,label){
+ const rows=buckets[level].map(b=>`<div class="cost-row"><label>${b}</label><input type="number" min="0" step="1" data-cost="${level}" data-bucket="${esc(b)}" value="${(f.costs[level]||{})[b]||''}" placeholder="0"></div>`).join('');
+ return `<div class="cost-panel"><h3>${label}</h3>${rows}<div class="result"><span class="small" style="color:#fff">Monthly total</span><strong data-total="${level}">${money(total(f,level))}/mo</strong></div><p class="small" data-future="${level}"></p></div>`;
+}
+function render(){
+ const list=document.getElementById('facilityList');
+ if(!facilities.length){
+  list.innerHTML='<div class="empty-state"><h3>No facilities added yet</h3><p class="small">Start with the first community you are considering.</p><button class="btn primary" id="emptyAdd">＋ Add Facility</button></div>';
+  document.getElementById('emptyAdd').onclick=add;
+ } else {
+  list.innerHTML=facilities.map(f=>`
+  <article class="facility-card" data-id="${f.id}">
+   <div class="facility-summary">
+    <div><div class="facility-name">${esc(f.name)}</div><span class="small">${f.favorite?'♥ Shortlisted':'Care option'}</span></div>
+    <div class="facility-cost"><span>INDEPENDENT</span><strong>${money(total(f,'independent'))}</strong></div>
+    <div class="facility-cost"><span>ASSISTED</span><strong>${money(total(f,'assisted'))}</strong></div>
+    <div class="facility-cost"><span>MEMORY CARE</span><strong>${money(total(f,'memory'))}</strong></div>
+    <div class="facility-actions"><button class="icon-btn favorite ${f.favorite?'active':''}" data-action="favorite">♥</button><button class="icon-btn" data-action="toggle">View details</button><button class="icon-btn" data-action="delete">Delete</button></div>
+   </div>
+   <div class="facility-detail">
+    <label>Facility name</label><input data-field="name" value="${esc(f.name)}">
+    <div class="cost-grid">${costPanel(f,'independent','Independent Living')}${costPanel(f,'assisted','Assisted Living')}${costPanel(f,'memory','Memory Care')}</div>
+    <div class="pc-grid">
+     <div><label>Pros</label><textarea data-field="pros" placeholder="What stands out in a good way?">${esc(f.pros)}</textarea></div>
+     <div><label>Cons</label><textarea data-field="cons" placeholder="What concerns you or costs extra?">${esc(f.cons)}</textarea></div>
+    </div>
+    <label>Tour / family notes</label><textarea data-field="notes" placeholder="Questions, impressions, staff names, follow-up items...">${esc(f.notes)}</textarea>
+    <label>One-time move-in / entrance / assessment fees</label><input type="number" data-field="oneTime" value="${f.oneTime||''}" placeholder="0">
+   </div>
+  </article>`).join('');
+ }
+ renderCompare(); updateFuture();
+}
+function renderCompare(){
+ const body=document.getElementById('compareBody');
+ if(!facilities.length){body.innerHTML='<tr><td colspan="6" class="small">Add a facility to start comparing.</td></tr>';return}
+ body.innerHTML=facilities.map(f=>`<tr><td><b>${f.favorite?'♥ ':''}${esc(f.name)}</b></td><td>${money(total(f,'independent'))}/mo</td><td>${money(total(f,'assisted'))}/mo</td><td>${money(total(f,'memory'))}/mo</td><td>${esc(f.pros)||'—'}</td><td>${esc(f.cons)||'—'}</td></tr>`).join('');
+}
+function updateFuture(){
+ const rate=Number(document.getElementById('annualIncrease').value)||0;
+ const yrs=Number(document.getElementById('projectionYears').value)||3;
+ document.querySelectorAll('.facility-card').forEach(card=>{
+  const f=facilities.find(x=>String(x.id)===card.dataset.id); if(!f)return;
+  ['independent','assisted','memory'].forEach(l=>{
+   const e=card.querySelector(`[data-future="${l}"]`);
+   if(e)e.textContent=`Projected in ${yrs} ${yrs===1?'year':'years'}: ${money(total(f,l)*Math.pow(1+rate,yrs))}/mo`;
+  });
+ });
+}
+function add(){const f=newFacility();facilities.push(f);save();render();setTimeout(()=>{const c=document.querySelector(`[data-id="${f.id}"]`);if(c){c.classList.add('open');const i=c.querySelector('[data-field="name"]');i.focus();i.select()}},0)}
+document.getElementById('addFacility').onclick=add;
+document.getElementById('topAddFacility').onclick=e=>{e.preventDefault();add()};
+document.getElementById('annualIncrease').onchange=updateFuture;
+document.getElementById('projectionYears').onchange=updateFuture;
+document.getElementById('facilityList').addEventListener('click',e=>{
+ const card=e.target.closest('.facility-card'); if(!card)return;
+ const f=facilities.find(x=>String(x.id)===card.dataset.id); if(!f)return;
+ const a=e.target.dataset.action;
+ if(a==='toggle'){card.classList.toggle('open');e.target.textContent=card.classList.contains('open')?'Hide details':'View details'}
+ if(a==='favorite'){f.favorite=!f.favorite;save();render()}
+ if(a==='delete' && confirm('Delete this facility?')){facilities=facilities.filter(x=>x.id!==f.id);save();render()}
+});
+document.getElementById('facilityList').addEventListener('input',e=>{
+ const card=e.target.closest('.facility-card'); if(!card)return;
+ const f=facilities.find(x=>String(x.id)===card.dataset.id); if(!f)return;
+ if(e.target.dataset.field){
+  f[e.target.dataset.field]=e.target.dataset.field==='oneTime'?Number(e.target.value)||0:e.target.value;
+ }
+ if(e.target.dataset.cost){
+  const l=e.target.dataset.cost,b=e.target.dataset.bucket;
+  f.costs[l][b]=Number(e.target.value)||0;
+  const t=card.querySelector(`[data-total="${l}"]`);if(t)t.textContent=money(total(f,l))+'/mo';
+ }
+ save();renderCompare();updateFuture();
+ const name=card.querySelector('.facility-name');if(name)name.textContent=f.name||'New Facility';
+});
+render();
+})();
+</script>
 <script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script></body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+</body>
 </html>
