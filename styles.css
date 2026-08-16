@@ -199,3 +199,29 @@ textarea{min-height:80px}
 @media(max-width:820px){
  .app-shell{display:block}.app-content{padding:18px 14px 94px}.app-page-hero{grid-template-columns:1fr;min-height:0}.app-page-hero-img{order:-1;min-height:230px}.app-page-hero-copy{padding:22px}.app-page-hero-copy h1{font-size:38px}.feature-intro-row{grid-template-columns:1fr}
 }
+
+
+/* PAID MEMBER PASSWORD VAULT */
+.vault-hero .app-page-hero-img{min-height:300px}
+.vault-toolbar{display:flex;justify-content:space-between;gap:18px;align-items:center;margin:20px 0}
+.vault-toolbar h2{margin:6px 0 3px}
+.vault-toolbar-actions{display:flex;gap:8px;flex-wrap:wrap}
+.vault-form{border:1px solid #dfd9ca}
+.vault-list{display:grid;gap:14px;margin-top:16px}
+.vault-entry{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 5px 18px rgba(30,65,55,.04)}
+.vault-entry-main{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.vault-entry-main h3{margin:5px 0 2px;color:var(--brand)}
+.vault-entry-actions{display:flex;gap:6px}
+.vault-category{display:inline-block;background:var(--mint);color:var(--brand);border-radius:999px;padding:4px 8px;font-size:11px;font-weight:900}
+.vault-entry-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.vault-entry-grid b{display:block;margin-top:4px}
+.password-line{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:3px}
+.password-line code{background:#f4f5f2;border-radius:8px;padding:7px 9px;min-width:130px}
+.vault-notes{margin-top:12px;background:#faf9f5;border-radius:12px;padding:11px}
+.vault-notes p{margin:3px 0 0}
+.vault-gate .vault-lock{margin:0 auto 10px}
+@media(max-width:720px){
+  .vault-toolbar,.vault-entry-main{align-items:stretch;flex-direction:column}
+  .vault-entry-grid{grid-template-columns:1fr}
+  .vault-toolbar-actions{width:100%}.vault-toolbar-actions .btn{flex:1;text-align:center}
+}

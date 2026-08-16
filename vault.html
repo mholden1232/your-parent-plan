@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Password Vault — Your Parent Plan</title>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="app-body" data-auth-required="true">
+<div class="app-shell">
+<aside class="app-sidebar">
+<a class="app-brand" href="index.html">Your Parent Plan</a>
+<div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b></div>
+<nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="active" href="information.html"><span>◎</span>  Essentials</a><a class="" href="money.html"><span>$</span>  Money</a><a class="" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
+<div style="margin-top:22px;padding:0 2px;border-top:1px solid #DEE5E0;padding-top:12px">
+<a class="small" href="pricing.html" style="padding-left:12px">Plans &amp; pricing</a>
+<button class="logout-link" data-logout="">Log out</button>
+</div>
+</aside>
+<div class="app-main">
+<header class="app-topbar"><div><b>Password Vault</b><div class="context">Essentials · Plus Membership</div></div><a class="quick-action" href="information.html">← Essentials</a></header>
+<main class="app-content">
+<section class="app-page-hero vault-hero">
+<div class="app-page-hero-copy">
+<div class="page-section-label">PLUS MEMBERSHIP</div>
+<h1>Password Vault</h1>
+<p>Keep the website logins and passwords your family may need organized in one encrypted vault.</p>
+<div class="page-help">
+<div class="page-help-icon">🔐</div>
+<div><b>Encrypted before it leaves your browser</b><span>Your vault passphrase is used locally to encrypt and decrypt your saved entries. It is not stored in the database.</span></div>
+</div>
+</div>
+<div class="app-page-hero-img"><img alt="Family organizing digital accounts" src="parent-info-hero.png"/></div>
+</section>
+<div class="auth-message" id="vaultMessage"></div>
+<section class="card section" hidden="" id="vaultLocked">
+<div class="vault-gate">
+<div class="vault-lock">🔒</div>
+<h2>Password Vault is a Plus feature</h2>
+<p>This account does not currently have an active Plus membership.</p>
+<a class="btn primary" href="pricing.html">See membership options</a>
+</div>
+</section>
+<section class="card section" hidden="" id="vaultSetup">
+<div class="paid-badge">FIRST-TIME SETUP</div>
+<h2>Create your vault passphrase</h2>
+<p>This passphrase protects the passwords inside your vault. <b>It is separate from your account password and cannot be recovered if you forget it.</b></p>
+<label>Vault passphrase</label>
+<input autocomplete="new-password" id="newVaultPassphrase" placeholder="At least 12 characters" type="password"/>
+<label>Re-enter vault passphrase</label>
+<input autocomplete="new-password" id="confirmVaultPassphrase" type="password"/>
+<button class="btn primary" id="createVaultBtn" type="button">Create encrypted vault</button>
+</section>
+<section class="card section" hidden="" id="vaultUnlock">
+<div class="paid-badge">ENCRYPTED VAULT</div>
+<h2>Unlock your Password Vault</h2>
+<p>Enter your vault passphrase to decrypt your saved entries on this device.</p>
+<label>Vault passphrase</label>
+<input autocomplete="current-password" id="vaultPassphrase" type="password"/>
+<button class="btn primary" id="unlockVaultBtn" type="button">Unlock vault</button>
+</section>
+<section hidden="" id="vaultApp">
+<div class="vault-toolbar">
+<div>
+<div class="paid-badge">PLUS MEMBER</div>
+<h2>Your digital accounts</h2>
+<p class="small">Only save credentials you are authorized to access and manage.</p>
+</div>
+<div class="vault-toolbar-actions">
+<button class="btn secondary" id="lockVaultBtn" type="button">Lock vault</button>
+<button class="btn primary" id="addVaultItemBtn" type="button">＋ Add account</button>
+</div>
+</div>
+<div class="card section vault-form" hidden="" id="vaultFormWrap">
+<h2 id="vaultFormTitle">Add digital account</h2>
+<input id="vaultItemId" type="hidden"/>
+<div class="grid2">
+<div><label>Account / website name</label><input id="accountName" placeholder="Mom's Gmail" type="text"/></div>
+<div><label>Category</label>
+<select id="accountCategory">
+<option>Email</option><option>Financial</option><option>Medical / Insurance</option>
+<option>Utilities</option><option>Household</option><option>Subscriptions</option>
+<option>Social</option><option>Devices</option><option>Other</option>
+</select>
+</div>
+<div><label>Website</label><input id="accountWebsite" placeholder="https://..." type="url"/></div>
+<div><label>Username / email</label><input autocomplete="off" id="accountUsername" type="text"/></div>
+</div>
+<label>Password</label><input autocomplete="new-password" id="accountPassword" type="password"/>
+<label>Notes / recovery information</label><textarea id="accountNotes" placeholder="Recovery email, PIN hint, what this account is used for..."></textarea>
+<div class="hero-actions">
+<button class="btn primary" id="saveVaultItemBtn" type="button">Save securely</button>
+<button class="btn secondary" id="cancelVaultItemBtn" type="button">Cancel</button>
+</div>
+</div>
+<div class="vault-list" id="vaultList"></div>
+</section>
+<section class="notice section">
+<b>Vault security:</b> the contents of each entry are encrypted in your browser with AES-GCM using a key derived from your vault passphrase. Your Parent Plan stores encrypted ciphertext, not your readable passwords. Keep your vault passphrase somewhere safe because it cannot be recovered.
+  </section>
+</main></div>
+</div>
+<nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="active" href="information.html"><span class="ico">◎</span>  Essentials</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
+
+<script src="script.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="membership.js"></script><script src="vault.js"></script></body>
+</html>

@@ -72,10 +72,10 @@
 <div class="question-card"><b>What they handle</b><p class="small">A quick note so siblings know when to call this person.</p></div>
 </div>
 </section>
-<section class="card section vault-card">
+<section class="card section vault-card" data-membership-gate="">
 <div class="vault-head">
 <div>
-<div class="paid-badge">PLUS MEMBERSHIP</div>
+<div class="paid-badge" data-membership-badge="">PLUS MEMBERSHIP</div>
 <h2>Digital Accounts &amp; Passwords</h2>
 <p>Keep the website logins and passwords your family may eventually need organized in one dedicated place.</p>
 </div>
@@ -86,15 +86,19 @@
 <div class="vault-row"><div><b>Medicare</b><span>Online account</span></div><div>••••••••••••</div></div>
 <div class="vault-row"><div><b>Utilities</b><span>Electric / gas / water</span></div><div>••••••••••••</div></div>
 </div>
-<div class="vault-gate">
+<div class="vault-gate" data-gate-locked="">
 <h3>Unlock the Password Vault</h3>
 <p class="small">Digital Accounts &amp; Passwords is not included with the free account. Choose a monthly or annual membership to unlock this feature.</p>
 <a class="btn primary" href="pricing.html">See membership options</a>
 </div>
-</section>
+<div class="vault-gate" data-gate-unlocked="" hidden="">
+<h3>Your Password Vault is unlocked with Plus</h3>
+<p class="small">Open the encrypted vault to add, edit or retrieve your family's digital accounts.</p>
+<a class="btn primary" href="vault.html">Open Password Vault</a>
+</div></section>
 </main></div>
 </div>
 <nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="active" href="information.html"><span class="ico">◎</span>  Essentials</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
 <script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script></body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="membership.js"></script></body>
 </html>
