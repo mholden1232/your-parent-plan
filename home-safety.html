@@ -112,13 +112,26 @@ button{font:inherit; cursor:pointer}
 .kit strong{display:block; margin-bottom:.25rem}
 .unsure{color:var(--muted); font-style:italic}
 .note{font-size:1rem; color:var(--muted)}
+.topnav{display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:1.75rem}
+.topnav .brand{margin-bottom:0}
+.topnav nav{display:flex; gap:1.1rem; font-size:.95rem}
+.topnav nav a{color:var(--ink); text-decoration:none}
+.topnav nav a:hover{text-decoration:underline; text-underline-offset:4px}
+.shoplink{white-space:nowrap; margin-left:.35rem; font-size:.95rem; font-weight:700; color:var(--spruce); text-underline-offset:3px}
+.kitlink{margin:.75rem 0 0}
+.kitlink a,.shopline a{font-weight:700; color:var(--spruce); text-underline-offset:3px}
+.shopline{margin:0 0 1.5rem}
+.topnav a:focus-visible,.shoplink:focus-visible,.kitlink a:focus-visible,.shopline a:focus-visible{outline:3px solid var(--marigold); outline-offset:3px}
 [hidden]{display:none !important}
 @media (prefers-reduced-motion:reduce){*{transition:none !important}}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <a class="brand" href="index.html">Your Parent Plan</a>
+  <header class="topnav">
+    <a class="brand" href="index.html">Your Parent Plan</a>
+    <nav aria-label="Main"><a href="shop.html">Shop</a><a href="pricing.html">Pricing</a><a href="login.html">Log in</a></nav>
+  </header>
 
   <section id="intro">
     <h1>How safe is your parent’s home?</h1>
@@ -152,6 +165,7 @@ button{font:inherit; cursor:pointer}
     <h2 id="rTitle"></h2>
     <div class="summary" id="rSummary"></div>
     <div id="rRooms"></div>
+    <p class="shopline"><a href="shop.html">See everything in the Shop</a></p>
     <p class="note"><strong>Before you buy:</strong> many of these items are HSA/FSA eligible, and some Medicare Advantage plans cover bathroom safety devices at no cost. Check the plan’s benefits first.</p>
     <p class="note">This checklist is a starting point, not a medical or home inspection. For a fall or a new health change, talk with a doctor, who can do a quick fall-risk check.</p>
     <button class="primary" id="restart">Start over</button>
@@ -190,6 +204,16 @@ const Q = [
   {room:"kitchen", q:"If {p} fell and couldn’t reach a phone, is there a way to call for help?", safe:"yes", issue:"No way to call for help after a fall", item:"Medical alert device with fall detection"},
   {id:"fall", room:"kitchen", q:"Has {p} fallen in the past year?", hint:"Even a fall without an injury counts.", safe:"no", issue:"A fall in the past year", item:null}
 ];
+
+// Items sold in the Shop (shop.html). Keyed by the checklist item text above.
+const SHOP = {
+  "Grab bars for the toilet and shower": {href:"shop.html#grab-bar", price:"$17.99"},
+  "Non-slip shower strips or mat": {href:"shop.html#shower-strips", price:"$14.99"},
+  "Tub transfer bench": {href:"shop.html#transfer-bench", price:"$99.99"},
+  "Raised toilet seat with handles": {href:"shop.html#toilet-seat", price:"$44.99"},
+  "Plug-in motion night lights": {href:"shop.html#night-lights", price:"$19.99"}
+};
+const SHOP_KITS = { bath: {href:"shop.html#bathroom-kit", label:"Get everything at once: the Bathroom Safety Kit, from $149"} };
 
 let who = "mom", idx = 0, answers = [];
 const $ = id => document.getElementById(id);
@@ -259,11 +283,17 @@ function renderResults(){
   const label = {good:"Looks good", watch:"Worth a look", fix:"Fix first"};
   scored.sort((a,b)=>b.s-a.s);
   $("rRooms").innerHTML = scored.map(r=>{
-    const items = r.issues.filter(x=>x.q.item).map(x=>`<li>${x.q.item}</li>`).join("");
+    const shopItems = r.issues.filter(x=>x.q.item && SHOP[x.q.item]);
+    const items = r.issues.filter(x=>x.q.item).map(x=>{
+      const p = SHOP[x.q.item];
+      return `<li>${x.q.item}${p ? ` <a class="shoplink" href="${p.href}">Shop · ${p.price}</a>` : ""}</li>`;
+    }).join("");
+    const kitLink = (SHOP_KITS[r.k] && shopItems.length >= 2)
+      ? `<p class="kitlink"><a href="${SHOP_KITS[r.k].href}">${SHOP_KITS[r.k].label}</a></p>` : "";
     const list = r.issues.length
       ? `<ul>${r.issues.map(x=>`<li>${x.q.issue}${x.unsure?` <span class="unsure">(not sure – worth checking)</span>`:""}</li>`).join("")}</ul>`
       : `<p>Nothing to fix here right now.</p>`;
-    const kit = items ? `<div class="kit"><strong>What helps: ${ROOMS[r.k].kit}</strong><ul>${items}</ul></div>` : "";
+    const kit = items ? `<div class="kit"><strong>What helps: ${ROOMS[r.k].kit}</strong><ul>${items}</ul>${kitLink}</div>` : "";
     return `<article class="roomcard"><div class="roomhead"><h3>${ROOMS[r.k].name}</h3><span class="pill ${r.state}">${label[r.state]}</span></div>${list}${kit}</article>`;
   }).join("");
   show("results");
