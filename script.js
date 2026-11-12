@@ -135,7 +135,9 @@
     if(bar) bar.style.width=pct+'%';
 
     const next=document.getElementById('nextThreeList');
-    if(next){
+    if(next && window.yppNextSteps && window.yppStore){
+      window.yppNextSteps(checks,next);
+    } else if(next){
       next.innerHTML='';
       const missing=checks.filter(cb=>!cb.checked).slice(0,3);
       if(!missing.length){

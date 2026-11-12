@@ -24,6 +24,7 @@
     if(PLANS.includes(plan)) return 'pricing.html?checkout='+plan;
     const next=params.get('next')||'';
     if(/^[a-z0-9-]+\.html$/i.test(next)) return next;
+    if(/^accept-invite\.html\?token=[a-f0-9]{16,128}$/i.test(next)) return next;
     return 'plan.html';
   }
 

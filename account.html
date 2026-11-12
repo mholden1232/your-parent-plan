@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Account &amp; Family — Your Parent Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="home.css" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="app-body home" data-auth-required="true" data-account-page="true">
+<div class="app-shell">
+<aside class="app-sidebar">
+<a class="app-brand" href="index.html">Your Parent Plan</a>
+<div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b></div>
+<nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="" href="information.html"><span>◎</span>  Essentials</a><a data-vault-nav="" href="vault.html"><span data-vault-icon="">🔒</span>  Password Vault<span class="nav-plus-badge locked">PLUS</span></a><a class="" href="money.html"><span>$</span>  Money</a><a class="" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
+<div class="app-sidebar-foot">
+<a class="small active" href="account.html">Account &amp; family</a>
+<a class="small" href="pricing.html">Plans &amp; pricing</a>
+<a class="small" href="help.html">Help</a>
+<button class="logout-link" data-logout="">Log out</button>
+</div>
+</aside>
+<div class="app-main">
+<header class="app-topbar">
+<div><b>Account &amp; family</b><div class="context" data-parent-name="">Parent / Loved One</div></div>
+</header>
+<main class="app-content">
+<h1>Account &amp; family</h1>
+<div class="auth-message" id="accountMessage" role="status"></div>
+
+<section class="card section" id="familySection">
+<div class="page-section-label">Family sharing</div>
+<h2>Share this plan</h2>
+<p class="small">Invite a sibling, spouse or anyone helping. <b>Editors</b> can update the plan and documents; <b>viewers</b> can only look. Your Password Vault is never shared. The people you invite don’t need to pay.</p>
+<div class="plus-feature-note" hidden id="familyLocked"><span class="plus-key">✦</span><div><b>Sharing is part of Plus.</b><span>Upgrade once and invite as many family members as you need.</span></div><a class="btn primary" href="pricing.html">See Plus</a></div>
+<form hidden id="inviteForm">
+<div class="grid3 invite-grid">
+<div><label for="inviteEmail">Their email</label><input autocomplete="off" id="inviteEmail" required type="email"/></div>
+<div><label for="inviteRole">Access</label><select id="inviteRole"><option value="editor">Can edit</option><option value="viewer">View only</option></select></div>
+<div><button class="btn primary" type="submit">Create invitation</button></div>
+</div>
+</form>
+<div class="invite-link good" hidden id="inviteLinkBox">
+<b>Invitation ready.</b> Send this link to <span id="inviteLinkEmail"></span>. It works once, for that email address, for 14 days.
+<div class="copy-row"><input id="inviteLink" readonly type="text"/><button class="btn secondary" id="copyInvite" type="button">Copy link</button><a class="btn secondary" id="emailInvite" href="#">Email it</a></div>
+</div>
+<h3>People with access</h3>
+<div class="member-list" id="memberList"><p class="small">Loading…</p></div>
+<h3>Waiting to accept</h3>
+<div class="member-list" id="inviteList"><p class="small">Loading…</p></div>
+</section>
+
+<section class="card section" hidden id="sharedWithMe">
+<div class="page-section-label">Shared with you</div>
+<h2>Plans you help with</h2>
+<p class="small">Switch between plans from the menu under “Current plan.”</p>
+<div class="member-list" id="sharedList"></div>
+</section>
+
+<section class="card section">
+<div class="page-section-label">Membership</div>
+<h2 id="memberTier">Free</h2>
+<p class="small" id="memberDetail">Free includes the checklist, Essentials, Money Snapshot, up to 2 facilities and 10 documents.</p>
+<div class="hero-actions"><a class="btn primary" href="pricing.html" id="memberCta">See Plus</a></div>
+</section>
+
+<section class="card section">
+<div class="page-section-label">Sign-in</div>
+<h2>Email &amp; password</h2>
+<p>Signed in as <b id="accountEmail">…</b></p>
+<div class="grid2">
+<form id="emailForm">
+<label for="newEmail">New email</label><input autocomplete="email" id="newEmail" required type="email"/>
+<button class="btn secondary" type="submit">Change email</button>
+<p class="small">We’ll send a confirmation link to the new address.</p>
+</form>
+<form id="passwordForm">
+<label for="newPassword">New password</label><input autocomplete="new-password" id="newPassword" minlength="8" placeholder="At least 8 characters" required type="password"/>
+<label for="newPassword2">Re-enter new password</label><input autocomplete="new-password" id="newPassword2" minlength="8" required type="password"/>
+<button class="btn secondary" type="submit">Change password</button>
+</form>
+</div>
+</section>
+
+<section class="card section danger-zone">
+<div class="page-section-label">Delete account</div>
+<h2>Delete your account</h2>
+<p>This permanently deletes your plan, documents, Password Vault and family sharing, and cancels Plus. It can’t be undone.</p>
+<label for="deleteConfirm">Type DELETE to confirm</label><input autocomplete="off" id="deleteConfirm" type="text"/>
+<button class="btn danger" disabled id="deleteBtn" type="button">Delete my account</button>
+</section>
+</main></div>
+</div>
+<nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="" href="information.html"><span class="ico">◎</span>Essentials</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="membership.js"></script><script src="plan-store.js"></script><script src="account.js"></script></body>
+</html>

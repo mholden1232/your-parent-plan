@@ -1,6 +1,6 @@
 YOUR PARENT PLAN: TURNING ON SAVING, UPLOADS AND PAYMENTS
 
-Do these steps in order. Steps 1 and 2 make saving and uploads work.
+Do these steps in order. Steps 1 and 2 make saving, uploads, family sharing and password resets work.
 Steps 3 to 7 turn on payments. Until payments are set up, everything else
 still works; the "Choose monthly / annual" buttons will just show an error.
 
@@ -21,14 +21,21 @@ This creates:
 
 Each account can only see its own rows and files.
 
+Then open another New query, paste the whole of supabase-family-setup.sql
+and click Run. This adds family sharing (invitations, editors and viewers),
+the Free limit of 2 Care facilities, and opens shared plans and documents
+to the family members each owner has invited. The Password Vault stays
+private to each person.
+
 
 STEP 2. Tell Supabase your website address
 ------------------------------------------
 Supabase > Authentication > URL Configuration:
 - Site URL: your live address, e.g. https://www.yourparentplan.com
 - Redirect URLs: add  https://www.yourparentplan.com/**
-This makes the "confirm your email" link bring people back to your site
-(and straight to checkout if they picked a plan before signing up).
+This makes the "confirm your email", "reset your password" and "change
+email" links bring people back to your site (and straight to checkout or
+to a family invitation if that's where they were headed).
 
 
 STEP 3. Create the Plus product in Stripe
@@ -70,11 +77,15 @@ add it too:
   supabase secrets set EXTRA_ALLOWED_ORIGINS=https://yourparentplan.com
 
 
-STEP 6. Deploy the three payment functions
+STEP 6. Deploy the four functions
 ------------------------------------------
   supabase functions deploy create-checkout
   supabase functions deploy billing-portal
   supabase functions deploy stripe-webhook --no-verify-jwt
+  supabase functions deploy delete-account
+
+(delete-account powers "Delete my account" on the Account & family page.
+It cancels the person's subscription, removes their files and deletes them.)
 
 (--no-verify-jwt is only for the webhook: Stripe can't log in to Supabase,
 so that function checks Stripe's signature instead.)

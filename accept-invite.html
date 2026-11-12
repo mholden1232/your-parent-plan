@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Family invitation — Your Parent Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="home.css" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="home">
+<main class="auth-page">
+  <div class="auth-shell">
+    <a class="auth-logo" href="index.html">Your Parent Plan</a>
+    <section class="auth-card">
+      <div class="eyebrow">Family invitation</div>
+      <h1 id="inviteTitle">You’re invited</h1>
+      <p id="inviteText">Checking your invitation…</p>
+      <div id="authMessage" class="auth-message" role="status"></div>
+      <button class="btn primary" hidden id="acceptBtn" type="button">Accept and open the plan</button>
+      <div class="hero-actions" hidden id="inviteAuth">
+        <a class="btn primary" id="inviteSignup" href="signup.html">Create an account</a>
+        <a class="btn secondary" id="inviteLogin" href="login.html">I already have an account</a>
+      </div>
+    </section>
+  </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous"></script>
+<script src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="accept-invite.js"></script>
+</body>
+</html>

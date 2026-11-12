@@ -18,7 +18,9 @@
 <div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b></div>
 <nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="" href="information.html"><span>◎</span>  Essentials</a><a data-vault-nav="" href="vault.html"><span data-vault-icon="">🔒</span>  Password Vault<span class="nav-plus-badge locked">PLUS</span></a><a class="active" href="money.html"><span>$</span>  Money</a><a class="" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
 <div class="app-sidebar-foot">
+<a class="small" href="account.html">Account &amp; family</a>
 <a class="small" href="pricing.html">Plans &amp; pricing</a>
+<a class="small" href="help.html">Help</a>
 <button class="logout-link" data-logout="">Log out</button>
 </div>
 </aside>
@@ -27,7 +29,7 @@
 <div><b>Money Snapshot</b><div class="context" data-parent-name="">Parent / Loved One</div></div>
 <a class="quick-action" href="scan.html">＋ Add / Scan</a>
 </header>
-<main class="app-content" data-store-section="money"><section class="app-page-hero"><div class="app-page-hero-copy"><div class="page-section-label">See the financial picture</div><h1>Money Snapshot </h1><p>Understand what your parent has coming in, what goes out each month, and what may realistically be available for care.</p><div class="page-help"><div class="page-help-icon">✓</div><div><b>How this helps</b><span>Care decisions get easier when you can see the monthly picture clearly instead of guessing from account balances or scattered bills.</span></div></div></div><div class="app-page-hero-img"><img alt="Money Snapshot planning visual" src="money-hero.png"/></div></section><div class="plus-feature-note free-plus" data-plus-note="money"><span class="plus-key">✓</span><div><b>Start free</b><span>Free includes the basic Money Snapshot: income, obligations, savings and a simple care budget. <b>Plus</b> adds projections, deeper planning and expanded tools.</span></div></div><section class="feature-intro-row"><div class="feature-intro-card"><b>See dependable income</b><span>Capture Social Security, pensions and other monthly resources.</span></div><div class="feature-intro-card gold"><b>Know recurring obligations</b><span>See what is already committed before estimating a care budget.</span></div><div class="feature-intro-card coral"><b>Plan for care costs</b><span>Use the available monthly amount to compare real facility options.</span></div></section>
+<main class="app-content" data-store-section="money"><section class="app-page-hero"><div class="app-page-hero-copy"><div class="page-section-label">See the financial picture</div><h1>Money Snapshot </h1><p>Understand what your parent has coming in, what goes out each month, and what may realistically be available for care.</p><div class="page-help"><div class="page-help-icon">✓</div><div><b>How this helps</b><span>Care decisions get easier when you can see the monthly picture clearly instead of guessing from account balances or scattered bills.</span></div></div></div><div class="app-page-hero-img"><img alt="Money Snapshot planning visual" src="money-hero.png"/></div></section><div class="plus-feature-note free-plus" data-plus-note="money"><span class="plus-key">✓</span><div><b>Start free</b><span>Free includes the Money Snapshot: income, obligations, savings and the monthly amount available for care. <b>Plus</b> adds a year-by-year projection of how long savings would last.</span></div></div><section class="feature-intro-row"><div class="feature-intro-card"><b>See dependable income</b><span>Capture Social Security, pensions and other monthly resources.</span></div><div class="feature-intro-card gold"><b>Know recurring obligations</b><span>See what is already committed before estimating a care budget.</span></div><div class="feature-intro-card coral"><b>Plan for care costs</b><span>Use the available monthly amount to compare real facility options.</span></div></section>
 <p>Enter dependable monthly income and ongoing obligations. The calculator estimates how much may be available each month for future care.</p>
 <section class="grid2 section">
 <div class="card">
@@ -59,10 +61,27 @@
 <span class="small" id="moneyExplanation">Add income and obligations above to calculate.</span>
 </div>
 </section>
+<section class="card section projection" id="projection">
+<div class="facility-toolbar"><div><span class="feature-plus-badge">PLUS</span><h2>How long would savings last?</h2>
+<p class="small">Compare a monthly care cost with the amount available above, and see how savings hold up as prices rise.</p></div></div>
+<div class="projection-locked" hidden id="projectionLocked">
+<p>Plus shows how long savings would cover the gap between income and the cost of care, year by year, using a saved facility or any monthly cost.</p>
+<a class="btn primary" href="pricing.html">See Plus</a>
+</div>
+<div id="projectionBody">
+<div class="grid3">
+<div><label for="projFacility">Use a saved facility</label><select id="projFacility"><option value="">Enter a cost myself</option></select></div>
+<div><label for="projCost">Monthly cost of care</label><input class="money-input" data-key="proj_care_cost" id="projCost" inputmode="decimal" min="0" type="number" value="0"/></div>
+<div><label for="projIncrease">Yearly price increase</label><select data-key="proj_increase" id="projIncrease"><option value="0.03">3%</option><option selected value="0.05">5%</option><option value="0.07">7%</option></select></div>
+</div>
+<div class="result" id="projResult"><span class="small">Savings would last</span><strong id="projHeadline">—</strong><span class="small" id="projExplain">Enter a monthly cost of care to see the projection.</span></div>
+<div class="table-scroll"><table class="compare-table" id="projTable"><thead><tr><th>Year</th><th>Care cost / month</th><th>Gap / month</th><th>Savings left at year end</th></tr></thead><tbody></tbody></table></div>
+</div>
+</section>
 <section class="notice">Planning tool only. This is a household affordability snapshot, not individualized financial advice.</section>
 </main></div>
 </div>
 <nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="" href="information.html"><span class="ico">◎</span>Essentials</a><a class="active" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
 <script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="plan-store.js"></script></body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="plan-store.js"></script><script src="money-projections.js"></script></body>
 </html>

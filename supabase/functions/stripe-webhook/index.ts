@@ -50,7 +50,11 @@ async function sync(sub: Stripe.Subscription) {
     cancel_at_period_end: !!sub.cancel_at_period_end,
     updated_at: new Date().toISOString(),
   }, { onConflict: "user_id" });
-  if (error) throw error;
+  if (error) {
+    // 23503: the account was deleted (delete-account cancels the subscription first).
+    if (error.code === "23503") return;
+    throw error;
+  }
 }
 
 Deno.serve(async (req) => {

@@ -18,7 +18,9 @@
 <div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b></div>
 <nav class="app-nav"><a href="plan.html"><span>⌂</span>  My Plan</a><a href="information.html"><span>◎</span>  Essentials</a><a data-vault-nav="" href="vault.html"><span data-vault-icon="">🔒</span>  Password Vault<span class="nav-plus-badge locked">PLUS</span></a><a href="money.html"><span>$</span>  Money</a><a class="active" href="care.html"><span>◇</span>  Care</a><a href="scan.html"><span>▣</span>  Scan</a></nav>
 <div class="app-sidebar-foot">
+<a class="small" href="account.html">Account &amp; family</a>
 <a class="small" href="pricing.html">Plans &amp; pricing</a>
+<a class="small" href="help.html">Help</a>
 <button class="logout-link" data-logout="">Log out</button>
 </div>
 </aside>
@@ -27,12 +29,13 @@
 <div><b>Care Options</b><div class="context" data-parent-name="">Parent / Loved One</div></div>
 <a class="quick-action" href="#" id="topAddFacility">＋ Add Facility</a>
 </header>
-<main class="app-content"><section class="app-page-hero"><div class="app-page-hero-copy"><div class="page-section-label">Compare the real cost, not just the rent</div><h1>Compare Care Options </h1><p>Add each facility once, build its true monthly cost, and keep the pros, cons and important notes beside the numbers.</p><div class="page-help"><div class="page-help-icon">✓</div><div><b>How this helps</b><span>Facility pricing can be hard to compare. This puts room, care-level fees, add-ons, future costs, pros and cons into one side-by-side view.</span></div></div></div><div class="app-page-hero-img"><img alt="Compare Care Options planning visual" src="care-hero.png"/></div></section><div class="plus-feature-note free-plus" data-plus-note="care"><span class="plus-key">✓</span><div><b>Try Care free</b><span>Free includes a basic facility comparison and cost view. <b>Plus</b> unlocks multiple saved facilities, full pros/cons comparisons and future-cost projections.</span></div></div><section class="feature-intro-row"><div class="feature-intro-card"><b>Add every facility</b><span>Save each community by name so you do not rebuild the same numbers.</span></div><div class="feature-intro-card gold"><b>See true monthly totals</b><span>Include meals, medication management, care fees and other add-ons.</span></div><div class="feature-intro-card coral"><b>Compare more than price</b><span>Keep pros, cons and family notes right beside the cost.</span></div></section>
+<main class="app-content"><section class="app-page-hero"><div class="app-page-hero-copy"><div class="page-section-label">Compare the real cost, not just the rent</div><h1>Compare Care Options </h1><p>Add each facility once, build its true monthly cost, and keep the pros, cons and important notes beside the numbers.</p><div class="page-help"><div class="page-help-icon">✓</div><div><b>How this helps</b><span>Facility pricing can be hard to compare. This puts room, care-level fees, add-ons, future costs, pros and cons into one side-by-side view.</span></div></div></div><div class="app-page-hero-img"><img alt="Compare Care Options planning visual" src="care-hero.png"/></div></section><div class="plus-feature-note free-plus" data-plus-note="care"><span class="plus-key">✓</span><div><b>Try Care free</b><span>Free compares up to 2 facilities, with full cost buckets, pros and cons. <b>Plus</b> saves as many as you’re considering.</span></div></div><section class="feature-intro-row"><div class="feature-intro-card"><b>Add every facility</b><span>Save each community by name so you do not rebuild the same numbers.</span></div><div class="feature-intro-card gold"><b>See true monthly totals</b><span>Include meals, medication management, care fees and other add-ons.</span></div><div class="feature-intro-card coral"><b>Compare more than price</b><span>Keep pros, cons and family notes right beside the cost.</span></div></section>
 <section class="card section">
 <div class="facility-toolbar">
 <div><h2>Facilities</h2><p class="small">Save as many options as you want and expand any facility for the details.</p></div>
 <button class="btn primary" id="addFacility">＋ Add Facility</button>
 </div>
+<div class="plus-feature-note" hidden id="careLimit"><span class="plus-key">✦</span><div><b>Free plans can compare up to 2 facilities.</b><span>Plus saves as many as you’re considering, for the whole family.</span></div><a class="btn primary" href="pricing.html">See Plus</a></div>
 <div class="facility-list" id="facilityList"></div>
 </section>
 <section class="card section">
@@ -131,7 +134,15 @@ function updateFuture(){
 }
 document.getElementById('annualIncrease').addEventListener('change',updateFuture);
 document.getElementById('projectionYears').addEventListener('change',updateFuture);
-function add(){const f=newFacility();facilities.push(f);save();render();setTimeout(()=>{const c=document.querySelector(`[data-id="${f.id}"]`);if(c){c.classList.add('open');const i=c.querySelector('[data-field="name"]');i.focus();i.select()}},0)}
+const FREE_FACILITIES=2;
+async function add(){
+ const p=window.yppStore?await window.yppStore.plan():null;
+ if(p&&p.ownerId&&!p.isPlus&&facilities.length>=FREE_FACILITIES){
+  const n=document.getElementById('careLimit');
+  n.hidden=false; n.scrollIntoView({block:'nearest',behavior:'smooth'});
+  return;
+ }
+ const f=newFacility();facilities.push(f);save();render();setTimeout(()=>{const c=document.querySelector(`[data-id="${f.id}"]`);if(c){c.classList.add('open');const i=c.querySelector('[data-field="name"]');i.focus();i.select()}},0)}
 document.getElementById('addFacility').onclick=add;
 document.getElementById('topAddFacility').onclick=e=>{e.preventDefault();add()};
 

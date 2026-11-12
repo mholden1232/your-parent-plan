@@ -315,7 +315,27 @@
     await loadItems();
   }
 
+  async function resetVault(){
+    if(qs('vaultResetConfirm').value.trim() !== 'RESET') return;
+    if(!confirm('Permanently delete every saved password and reset the vault?')) return;
+    qs('vaultResetBtn').disabled = true;
+    const {error: itemsErr} = await client.from('vault_items').delete().eq('user_id', user.id);
+    const {error: settingsErr} = itemsErr ? {error:null} : await client.from('vault_settings').delete().eq('user_id', user.id);
+    if(itemsErr || settingsErr){
+      qs('vaultResetBtn').disabled = false;
+      msg((itemsErr || settingsErr).message || 'The vault could not be reset.', 'error');
+      return;
+    }
+    key = null;
+    qs('vaultResetConfirm').value = '';
+    qs('vaultUnlock').hidden = true;
+    qs('vaultSetup').hidden = false;
+    msg('Vault reset. Create a new passphrase to start again.', 'success');
+  }
+
   document.addEventListener('DOMContentLoaded', ()=>{
+    qs('vaultResetConfirm')?.addEventListener('input', ()=>{ qs('vaultResetBtn').disabled = qs('vaultResetConfirm').value.trim() !== 'RESET'; });
+    qs('vaultResetBtn')?.addEventListener('click', resetVault);
     qs('createVaultBtn')?.addEventListener('click', createVault);
     qs('unlockVaultBtn')?.addEventListener('click', unlockVault);
     qs('addVaultItemBtn')?.addEventListener('click', ()=>openForm());

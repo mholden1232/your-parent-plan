@@ -6,7 +6,7 @@
   const FREE_LIMIT = 10;
   const MAX_BYTES = 15 * 1024 * 1024;
   const $ = id => document.getElementById(id);
-  let client = null, user = null, isPlus = false, docs = [], filter = 'All';
+  let client = null, ownerId = null, isPlus = false, canEdit = true, docs = [], filter = 'All';
 
   function esc(s){
     return String(s || '').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -33,7 +33,7 @@
     if(isPlus){ el.textContent = 'Plus: unlimited documents. Up to 15 MB each.'; return; }
     const left = Math.max(0, FREE_LIMIT - docs.length);
     el.innerHTML = `${docs.length} of ${FREE_LIMIT} free documents used. Up to 15 MB each.` +
-      (left === 0 ? ' <a href="pricing.html">Upgrade to Plus</a> for unlimited uploads.' : '');
+      (left === 0 ? ' <a href="pricing.html">Plus</a> gives unlimited uploads.' : '');
   }
 
   function render(){
@@ -51,7 +51,7 @@
         </div>
         <div class="doc-actions">
           <button class="icon-btn" data-action="open" type="button">Open</button>
-          <button class="icon-btn" data-action="delete" type="button">Delete</button>
+          ${canEdit ? '<button class="icon-btn" data-action="delete" type="button">Delete</button>' : ''}
         </div>
       </article>`).join('')
       : '<div class="empty-state"><h3>No documents yet</h3><p class="small">Start with the power of attorney or an insurance card.</p></div>';
@@ -61,7 +61,7 @@
   async function loadDocs(){
     const {data, error} = await client.from('documents')
       .select('id,name,category,note,storage_path,mime_type,size_bytes,created_at')
-      .eq('user_id', user.id)
+      .eq('user_id', ownerId)
       .order('created_at', {ascending:false});
     if(error){
       $('docList').innerHTML = '';
@@ -83,12 +83,12 @@
       return;
     }
     const name = $('docName').value.trim() || file.name.replace(/\.[^.]+$/, '');
-    const path = `${user.id}/${crypto.randomUUID()}-${safeName(file.name)}`;
+    const path = `${ownerId}/${crypto.randomUUID()}-${safeName(file.name)}`;
     setBusy(true);
     try{
       // Record first: the database enforces the free-plan limit.
       const {data: row, error: rowErr} = await client.from('documents').insert({
-        user_id: user.id, name, category: $('docCategory').value, note: $('docNote').value.trim(),
+        user_id: ownerId, name, category: $('docCategory').value, note: $('docNote').value.trim(),
         storage_path: path, mime_type: file.type || '', size_bytes: file.size
       }).select().single();
       if(rowErr){
@@ -154,11 +154,12 @@
       msg('Uploading needs your account connection, which isn’t available right now. Please reload or try again later.', 'error');
       return;
     }
-    const {data} = await client.auth.getSession();
-    if(!data || !data.session) return; // auth.js sends the visitor to log in
-    user = data.session.user;
-    const m = window.yppGetMembership ? await window.yppGetMembership() : {isPlus:false};
-    isPlus = !!m.isPlus;
+    const p = window.yppStore ? await window.yppStore.plan() : null;
+    if(!p || !p.ownerId) return; // auth.js sends the visitor to log in
+    ownerId = p.ownerId;
+    isPlus = !!p.isPlus;
+    canEdit = p.canEdit;
+    if(!canEdit) document.querySelector('.upload-form').hidden = true;
     await loadDocs();
   });
 })();

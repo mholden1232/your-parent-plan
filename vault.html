@@ -18,7 +18,9 @@
 <div class="app-profile"><span class="small">CURRENT PLAN</span><b>Parent / Loved One</b></div>
 <nav class="app-nav"><a class="" href="plan.html"><span>⌂</span>  My Plan</a><a class="active" href="information.html"><span>◎</span>  Essentials</a><a class="active" data-vault-nav="" href="vault.html"><span data-vault-icon="">🔒</span>  Password Vault<span class="nav-plus-badge locked">PLUS</span></a><a class="" href="money.html"><span>$</span>  Money</a><a class="" href="care.html"><span>◇</span>  Care</a><a class="" href="scan.html"><span>▣</span>  Scan</a></nav>
 <div class="app-sidebar-foot">
+<a class="small" href="account.html">Account &amp; family</a>
 <a class="small" href="pricing.html">Plans &amp; pricing</a>
+<a class="small" href="help.html">Help</a>
 <button class="logout-link" data-logout="">Log out</button>
 </div>
 </aside>
@@ -63,6 +65,13 @@
 <label>Vault passphrase</label>
 <input autocomplete="current-password" id="vaultPassphrase" type="password"/>
 <button class="btn primary" id="unlockVaultBtn" type="button">Unlock vault</button>
+<details class="vault-reset">
+<summary>Forgot your vault passphrase?</summary>
+<p>The passphrase isn’t stored anywhere, so it can’t be recovered. You can reset the vault: <b>every saved password will be permanently deleted</b>, and you’ll create a new passphrase and start again.</p>
+<label for="vaultResetConfirm">Type RESET to confirm</label>
+<input autocomplete="off" id="vaultResetConfirm" type="text"/>
+<button class="btn danger" disabled id="vaultResetBtn" type="button">Delete all saved passwords and reset</button>
+</details>
 </section>
 <section hidden="" id="vaultApp">
 <div class="vault-toolbar">
