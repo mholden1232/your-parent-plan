@@ -465,3 +465,48 @@ input:focus-visible,textarea:focus-visible,select:focus-visible,.btn:focus-visib
   .app-page-hero-copy{padding:1.5rem 1.25rem!important}
   .app-page-hero-img{min-height:200px}
 }
+
+/* =====================================================================
+   SHOP PAGE (shop.html) — homepage style, Buy buttons go to Shopify
+   ===================================================================== */
+.hnav nav a[aria-current="page"]{text-decoration:underline; text-underline-offset:4px}
+.shop-head{max-width:68rem; margin:0 auto; padding:2.5rem 1.5rem 1.5rem}
+.shop-head h1{margin:.2rem 0 1rem; max-width:40rem}
+.shop-head .lede{font-size:1.2rem; color:var(--muted); max-width:38rem; margin:0}
+.shop-head .lede a,.questions dd a{color:var(--green); font-weight:600}
+.shop-type{margin:0 0 .3rem; font-size:.9rem; font-weight:700; color:var(--gold)}
+
+.shop-kit{display:grid; grid-template-columns:1.15fr .85fr; gap:3.5rem; align-items:start; max-width:68rem; margin:0 auto; padding:1.5rem 1.5rem 4rem}
+.kit-sheet{background:var(--sheet); padding:2rem 2rem 1.5rem; border-top:6px solid var(--green); box-shadow:0 1px 0 var(--rule), 0 18px 40px -24px rgba(31,43,39,.35)}
+.kit-sheet h2{font-size:clamp(1.8rem,3.2vw,2.3rem); margin:0 0 .5rem}
+.kit-lede{color:var(--muted); margin:0 0 1rem}
+.kit-items{list-style:none; margin:0; padding:0}
+.kit-items li{display:flex; gap:.75rem; align-items:baseline; padding:.6rem 0; border-bottom:1px dashed var(--rule)}
+.kit-items li:last-child{border-bottom:0}
+.kit-items li::before{content:""; flex:none; width:.95rem; height:.95rem; border:1.5px solid var(--green); border-radius:2px; background:var(--green); box-shadow:inset 0 0 0 2px var(--sheet); transform:translateY(.12rem)}
+.kit-choose h3{margin:0 0 .5rem; font-size:1.4rem}
+.kit-choose p{color:var(--muted)}
+.kit-choose p b{color:var(--ink)}
+a.cta.kit-buy{display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-top:.75rem; color:var(--on-green); text-decoration:none}
+.kit-buy b{font-family:"Newsreader",Georgia,serif; font-weight:500; font-size:1.35rem}
+.shop-fine{font-size:.88rem; margin-top:1rem}
+
+.shop-list{max-width:68rem; margin:0 auto; padding:0 1.5rem 4.5rem}
+.shop-list-head{display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap; border-top:1px solid var(--rule); padding-top:2.5rem; margin-bottom:1.5rem}
+.shop-list-head h2{margin:0; font-size:clamp(1.6rem,3vw,2.1rem)}
+.shop-list-head p{margin:0; color:var(--muted)}
+.products{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem}
+.product{display:flex; flex-direction:column; background:var(--sheet); border:1px solid var(--rule); border-radius:6px; padding:1.4rem 1.4rem 1.25rem}
+.product h3{margin:0; font-size:1.3rem; line-height:1.2}
+.product .price{font-family:"Newsreader",Georgia,serif; font-size:1.6rem; color:var(--green); margin:.35rem 0 .5rem}
+.product p{margin:0 0 .75rem; font-size:.97rem}
+.product .product-note{font-size:.88rem; color:var(--muted); padding-top:.6rem; border-top:1px dashed var(--rule)}
+.product .btn{margin-top:auto; text-align:center; text-decoration:none}
+
+@media (max-width:820px){
+  .shop-kit{grid-template-columns:1fr; gap:2rem; padding-bottom:3rem}
+  .products{grid-template-columns:1fr}
+}
+@media (min-width:821px) and (max-width:1040px){
+  .products{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
