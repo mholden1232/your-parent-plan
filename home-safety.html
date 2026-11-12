@@ -205,7 +205,8 @@ const SHOP = {
   "Non-slip shower strips or mat": {href:"shop.html#shower-strips", price:"$14.99"},
   "Tub transfer bench": {href:"shop.html#transfer-bench", price:"$99.99"},
   "Raised toilet seat with handles": {href:"shop.html#toilet-seat", price:"$44.99"},
-  "Plug-in motion night lights": {href:"shop.html#night-lights", price:"$19.99"}
+  "Plug-in motion night lights": {href:"shop.html#night-lights", price:"$19.99"},
+  "Medical alert device with fall detection": {href:"shop.html#medical-alert", label:"Compare options"}
 };
 const SHOP_KITS = { bath: {href:"shop.html#bathroom-kit", label:"Get everything at once: the Bathroom Safety Kit, from $149"} };
 
@@ -280,7 +281,7 @@ function renderResults(){
     const shopItems = r.issues.filter(x=>x.q.item && SHOP[x.q.item]);
     const items = r.issues.filter(x=>x.q.item).map(x=>{
       const p = SHOP[x.q.item];
-      return `<li>${x.q.item}${p ? ` <a class="shoplink" href="${p.href}">Shop · ${p.price}</a>` : ""}</li>`;
+      return `<li>${x.q.item}${p ? ` <a class="shoplink" href="${p.href}">${p.label || "Shop · " + p.price}</a>` : ""}</li>`;
     }).join("");
     const kitLink = (SHOP_KITS[r.k] && shopItems.length >= 2)
       ? `<p class="kitlink"><a href="${SHOP_KITS[r.k].href}">${SHOP_KITS[r.k].label}</a></p>` : "";

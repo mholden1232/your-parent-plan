@@ -510,3 +510,17 @@ a.cta.kit-buy{display:flex; justify-content:space-between; align-items:center; g
 @media (min-width:821px) and (max-width:1040px){
   .products{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* Medical alert comparison */
+.shop-compare{max-width:68rem; margin:0 auto; padding:0 1.5rem 4.5rem}
+.compare{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem; align-items:stretch}
+.option{display:flex; flex-direction:column; background:var(--sheet); border:1px solid var(--rule); border-radius:6px; padding:1.4rem}
+.option.pick{border-top:6px solid var(--green)}
+.option h3{margin:0 0 .75rem; font-size:1.3rem; line-height:1.2}
+.option dl{margin:0 0 1.25rem}
+.option dt{font-size:.8rem; font-weight:700; color:var(--muted); margin-top:.65rem}
+.option dd{margin:.1rem 0 0; padding-bottom:.6rem; border-bottom:1px dashed var(--rule); font-size:.97rem}
+.option .btn.soon{margin-top:auto; text-align:center; background:transparent!important; color:var(--muted)!important; border:1px dashed var(--rule)!important; cursor:default}
+.compare-note{max-width:46rem; margin:1.5rem 0 0; color:var(--muted); font-size:.95rem}
+.compare-note b{color:var(--ink)}
+@media (max-width:820px){ .compare{grid-template-columns:1fr} }
