@@ -6,14 +6,15 @@
 <title>Home Safety Checklist – Your Parent Plan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="binder.css" rel="stylesheet">
 <style>
 :root{
-  --bg:#F7F3EA; --surface:#FFFDF8; --ink:#1F2B27; --muted:#5E6A65; --line:#D9D2C3;
-  --spruce:#29483F; --spruce-tint:#DCE7E1; --on-spruce:#FFFFFF;
-  --marigold:#B9780F; --marigold-tint:#FBEBCB;
-  --brick:#A3333F; --brick-tint:#F6DADC;
-  --room:#EFE8DA;
+  --bg:#FFFFFF; --surface:#FFFFFF; --ink:#2B1B2E; --muted:#5A4555; --line:#D9C7BC;
+  --spruce:#2B1B2E; --spruce-tint:#F1E9EF; --on-spruce:#FFFFFF;
+  --marigold:#A94424; --marigold-tint:#FBEDE6;
+  --brick:#A3333F; --brick-tint:#F8E1E1;
+  --room:#FBF4EE;
   color-scheme:light;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
@@ -21,32 +22,32 @@
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#121A19; --surface:#1A2423; --ink:#E7EEEB; --muted:#A3B2AE; --line:#2E3C3A;
-    --spruce:#6FB7AC; --spruce-tint:#1F3A36; --on-spruce:#0E1615;
-    --marigold:#E9B44F; --marigold-tint:#3A2E14;
-    --brick:#EE8A93; --brick-tint:#3F2125;
-    --room:#202C2B;
-    color-scheme:dark;
+  --bg:#FFFFFF; --surface:#FFFFFF; --ink:#2B1B2E; --muted:#5A4555; --line:#D9C7BC;
+  --spruce:#2B1B2E; --spruce-tint:#F1E9EF; --on-spruce:#FFFFFF;
+  --marigold:#A94424; --marigold-tint:#FBEDE6;
+  --brick:#A3333F; --brick-tint:#F8E1E1;
+  --room:#FBF4EE;
+    color-scheme:light;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#121A19; --surface:#1A2423; --ink:#E7EEEB; --muted:#A3B2AE; --line:#2E3C3A;
-  --spruce:#6FB7AC; --spruce-tint:#1F3A36; --on-spruce:#0E1615;
-  --marigold:#E9B44F; --marigold-tint:#3A2E14;
-  --brick:#EE8A93; --brick-tint:#3F2125;
-  --room:#202C2B;
-  color-scheme:dark;
+  --bg:#FFFFFF; --surface:#FFFFFF; --ink:#2B1B2E; --muted:#5A4555; --line:#D9C7BC;
+  --spruce:#2B1B2E; --spruce-tint:#F1E9EF; --on-spruce:#FFFFFF;
+  --marigold:#A94424; --marigold-tint:#FBEDE6;
+  --brick:#A3333F; --brick-tint:#F8E1E1;
+  --room:#FBF4EE;
+  color-scheme:light;
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{
   margin:0; background:var(--bg); color:var(--ink);
-  font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-family:var(--text);
   font-size:1.1875rem; line-height:1.55;
 }
 .wrap{max-width:38rem; margin:0 auto; padding:1.25rem 1.25rem 3rem}
-.brand{display:inline-block; font-family:"Newsreader",Georgia,serif; font-weight:600; color:var(--spruce); font-size:1.4rem; margin-bottom:1.75rem; text-decoration:none}
-h1,h2,h3{font-family:"Newsreader",Georgia,serif; font-weight:650; line-height:1.15; margin:0}
+.brand{display:inline-block; font-family:var(--display); font-weight:600; color:var(--spruce); font-size:1.4rem; margin-bottom:1.75rem; text-decoration:none}
+h1,h2,h3{font-family:var(--display); font-weight:800; letter-spacing:-.02em; line-height:1.15; margin:0}
 h1{font-size:clamp(2rem,7vw,2.75rem); letter-spacing:-.01em}
 h2{font-size:clamp(1.5rem,5vw,1.875rem)}
 h3{font-size:1.3rem}
@@ -57,13 +58,13 @@ p{margin:.75rem 0}
 .who input{position:absolute; opacity:0; pointer-events:none}
 .who span{
   display:block; text-align:center; padding:.85rem .5rem; border:2px solid var(--line);
-  border-radius:6px; background:var(--surface); cursor:pointer; font-weight:700;
+  border-radius:0; background:var(--surface); cursor:pointer; font-weight:700;
 }
 .who input:checked + span{border-color:var(--spruce); background:var(--spruce-tint); color:var(--ink)}
 .who input:focus-visible + span{outline:3px solid var(--marigold); outline-offset:2px}
 button{font:inherit; cursor:pointer}
 .primary{
-  display:inline-block; width:100%; padding:1rem 1.25rem; border:0; border-radius:6px;
+  display:inline-block; width:100%; padding:1rem 1.25rem; border:0; border-radius:0;
   background:var(--spruce); color:var(--on-spruce); font-weight:700; font-size:1.15rem;
 }
 .primary:focus-visible,.answer:focus-visible,.link:focus-visible{outline:3px solid var(--marigold); outline-offset:3px}
@@ -78,31 +79,31 @@ button{font:inherit; cursor:pointer}
 .house rect.room.good{fill:var(--spruce-tint)}
 .house rect.room.watch{fill:var(--marigold-tint)}
 .house rect.room.fix{fill:var(--brick-tint)}
-.house text{font-family:"Public Sans",system-ui,Arial,sans-serif; font-size:13px; fill:var(--ink); text-anchor:middle}
+.house text{font-family:var(--text); font-size:13px; fill:var(--ink); text-anchor:middle}
 .house text.state{font-size:11px; font-weight:700}
 .house text.state.good{fill:var(--spruce)} .house text.state.watch{fill:var(--marigold)} .house text.state.fix{fill:var(--brick)}
 
 .progress{color:var(--muted); font-size:1rem; margin-bottom:.5rem}
-.bar{height:6px; background:var(--line); border-radius:3px; overflow:hidden; margin-bottom:1.5rem}
+.bar{height:6px; background:var(--line); border-radius:0; overflow:hidden; margin-bottom:1.5rem}
 .bar i{display:block; height:100%; background:var(--spruce); transition:width .3s ease}
-.question{font-family:"Newsreader",Georgia,serif; font-size:clamp(1.45rem,5vw,1.75rem); font-weight:500; line-height:1.25; margin:0 0 .5rem}
+.question{font-family:var(--display); font-size:clamp(1.45rem,5vw,1.75rem); font-weight:800; line-height:1.25; margin:0 0 .5rem}
 .hint{color:var(--muted); font-size:1rem; margin:0 0 1.25rem}
 .answers{display:grid; gap:.6rem}
 .answer{
-  text-align:left; padding:1rem 1.15rem; border:2px solid var(--line); border-radius:6px;
+  text-align:left; padding:1rem 1.15rem; border:2px solid var(--line); border-radius:0;
   background:var(--surface); color:var(--ink); font-weight:700; font-size:1.15rem;
 }
 .answer:hover{border-color:var(--spruce)}
 .link{background:none; border:0; color:var(--spruce); font-weight:700; padding:.5rem 0; margin-top:1rem; text-decoration:underline; text-underline-offset:3px}
 
 .summary{
-  padding:1.1rem 1.2rem; border-radius:6px; margin:0 0 1.75rem;
+  padding:1.1rem 1.2rem; border-radius:0; margin:0 0 1.75rem;
   background:var(--surface); border-left:6px solid var(--spruce);
 }
 .summary.fix{border-left-color:var(--brick)} .summary.watch{border-left-color:var(--marigold)}
-.roomcard{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1.15rem 1.2rem; margin-bottom:1rem}
+.roomcard{background:var(--surface); border:1px solid var(--line); border-radius:0; padding:1.15rem 1.2rem; margin-bottom:1rem}
 .roomhead{display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap}
-.pill{font-size:.9rem; font-weight:700; padding:.15rem .6rem; border-radius:999px}
+.pill{font-size:.9rem; font-weight:700; padding:.15rem .6rem; border-radius:0}
 .pill.good{background:var(--spruce-tint); color:var(--spruce)}
 .pill.watch{background:var(--marigold-tint); color:var(--marigold)}
 .pill.fix{background:var(--brick-tint); color:var(--brick)}
@@ -112,17 +113,38 @@ button{font:inherit; cursor:pointer}
 .kit strong{display:block; margin-bottom:.25rem}
 .unsure{color:var(--muted); font-style:italic}
 .note{font-size:1rem; color:var(--muted)}
+.topnav{display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:1.75rem}
+.topnav .brand{margin-bottom:0}
+.topnav nav{display:flex; gap:1.1rem; font-size:.95rem}
+.topnav nav a{color:var(--ink); text-decoration:none}
+.topnav nav a:hover{text-decoration:underline; text-underline-offset:4px}
+.shoplink{white-space:nowrap; margin-left:.35rem; font-size:.95rem; font-weight:700; color:var(--spruce); text-underline-offset:3px}
+.kitlink{margin:.75rem 0 0}
+.kitlink a,.shopline a{font-weight:700; color:var(--spruce); text-underline-offset:3px}
+.shopline{margin:0 0 1.5rem}
+.topnav a:focus-visible,.shoplink:focus-visible,.kitlink a:focus-visible,.shopline a:focus-visible{outline:3px solid var(--marigold); outline-offset:3px}
+.intro-photo{display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; margin-top:2rem}
+.wrap{padding-top:2rem}
 [hidden]{display:none !important}
 @media (prefers-reduced-motion:reduce){*{transition:none !important}}
 </style>
 </head>
 <body>
+<header class="site-head">
+  <a class="site-mark" href="index.html">Your Parent Plan</a>
+  <nav class="site-nav" aria-label="Main">
+    <a class="opt" href="index.html#binder">What’s in it</a>
+    <a class="opt" aria-current="page" href="home-safety.html">Home safety</a>
+    <a class="opt" href="shop.html">Shop</a>
+    <a href="login.html">Log in</a>
+    <a class="go" href="signup.html">Start free →</a>
+  </nav>
+</header>
 <main class="wrap">
-  <a class="brand" href="index.html">Your Parent Plan</a>
 
   <section id="intro">
     <h1>How safe is your parent’s home?</h1>
-    <p class="lede">Eighteen quick questions, room by room. You’ll get a plain list of what to fix first and what helps.</p>
+    <p class="lede">Twelve quick questions, room by room. You’ll get a plain list of what to fix first and what helps.</p>
     <fieldset class="who" style="border:0;padding:0">
       <legend class="hint" style="margin-bottom:.6rem">Who is this for?</legend>
       <label><input type="radio" name="who" value="mom" checked><span>Mom</span></label>
@@ -130,7 +152,8 @@ button{font:inherit; cursor:pointer}
       <label><input type="radio" name="who" value="parent"><span>My parent</span></label>
     </fieldset>
     <button class="primary" id="start">Start the checklist</button>
-    <p class="fine">Takes about five minutes. Answer from what you’ve seen in the home.</p>
+    <p class="fine">Takes about three minutes. Answer from what you’ve seen in the home.</p>
+    <img class="intro-photo" src="images/grab-bar.jpg" alt="An older woman’s hand holding a grab bar beside a bathtub with a non-slip mat" width="1536" height="1024">
   </section>
 
   <section id="quiz" hidden>
@@ -152,6 +175,7 @@ button{font:inherit; cursor:pointer}
     <h2 id="rTitle"></h2>
     <div class="summary" id="rSummary"></div>
     <div id="rRooms"></div>
+    <p class="shopline"><a href="shop.html">See everything in the Shop</a></p>
     <p class="note"><strong>Before you buy:</strong> many of these items are HSA/FSA eligible, and some Medicare Advantage plans cover bathroom safety devices at no cost. Check the plan’s benefits first.</p>
     <p class="note">This checklist is a starting point, not a medical or home inspection. For a fall or a new health change, talk with a doctor, who can do a quick fall-risk check.</p>
     <button class="primary" id="restart">Start over</button>
@@ -177,19 +201,24 @@ const Q = [
   {room:"bath", q:"Can {p} stand up from the toilet without pushing off the sink or wall?", safe:"yes", issue:"Hard to stand up from the toilet", item:"Raised toilet seat with handles"},
   {room:"bath", q:"Is there a night light along the path from the bed to the bathroom?", safe:"yes", issue:"Dark path to the bathroom at night", item:"Plug-in motion night lights"},
   {room:"bed", q:"Can {p} get in and out of bed without struggling?", safe:"yes", issue:"Trouble getting in and out of bed", item:"Bed assist handle"},
-  {room:"bed", q:"Can {p} reach a lamp and a phone without getting out of bed?", safe:"yes", issue:"Lamp or phone out of reach from bed", item:"Touch lamp and bedside organizer"},
   {room:"stairs", q:"Do the stairs have sturdy handrails on both sides?", hint:"No stairs in the home? Choose Yes.", safe:"yes", issue:"Stairs missing a sturdy handrail", item:"A second handrail, installed by a handyman"},
   {room:"stairs", q:"Are there loose rugs, cords, or clutter on walkways?", safe:"no", issue:"Rugs, cords, or clutter in walkways", item:"Rug grippers and cord covers"},
   {room:"stairs", q:"Are stairs and hallways well lit, with light switches at both ends?", safe:"yes", issue:"Dim stairs or hallways", item:"Motion-sensor lights and contrasting step-edge tape"},
-  {room:"stairs", q:"Is the main entrance step-free, or do the entry steps have a sturdy handrail?", safe:"yes", issue:"Entry steps without a sturdy handrail", item:"Entry handrail or threshold ramp"},
   {room:"kitchen", q:"Can {p} reach everyday dishes and food without a step stool?", safe:"yes", issue:"Reaching high shelves or climbing a step stool", item:"Reacher-grabber and a step stool with a handrail"},
-  {room:"kitchen", q:"Can {p} open doors and turn faucets easily, even on a sore-hands day?", safe:"yes", issue:"Round doorknobs or faucets that are hard to turn", item:"Lever handle converters and faucet turners"},
-  {room:"kitchen", q:"Can {p} stand up from a favorite chair without rocking or pushing hard?", safe:"yes", issue:"Hard to stand up from a favorite chair", item:"Furniture risers or a standing-assist handle"},
-  {room:"kitchen", q:"Does {p} take medications on schedule without mix-ups or missed doses?", hint:"No daily medications? Choose Yes.", safe:"yes", issue:"Missed or mixed-up medications", item:"Automatic pill dispenser with reminders"},
-  {room:"kitchen", q:"Are there working smoke and carbon monoxide detectors, tested in the last month?", safe:"yes", issue:"Smoke or carbon monoxide detectors not checked", item:"Smoke and carbon monoxide detectors"},
   {room:"kitchen", q:"If {p} fell and couldn’t reach a phone, is there a way to call for help?", safe:"yes", issue:"No way to call for help after a fall", item:"Medical alert device with fall detection"},
   {id:"fall", room:"kitchen", q:"Has {p} fallen in the past year?", hint:"Even a fall without an injury counts.", safe:"no", issue:"A fall in the past year", item:null}
 ];
+
+// Items sold in the Shop (shop.html). Keyed by the checklist item text above.
+const SHOP = {
+  "Grab bars for the toilet and shower": {href:"shop.html#grab-bar", price:"$17.99"},
+  "Non-slip shower strips or mat": {href:"shop.html#shower-strips", price:"$14.99"},
+  "Tub transfer bench": {href:"shop.html#transfer-bench", price:"$99.99"},
+  "Raised toilet seat with handles": {href:"shop.html#toilet-seat", price:"$44.99"},
+  "Plug-in motion night lights": {href:"shop.html#night-lights", price:"$19.99"},
+  "Medical alert device with fall detection": {href:"shop.html#medical-alert", label:"Compare options"}
+};
+const SHOP_KITS = { bath: {href:"shop.html#bathroom-kit", label:"Get everything at once: the Bathroom Safety Kit, from $149"} };
 
 let who = "mom", idx = 0, answers = [];
 const $ = id => document.getElementById(id);
@@ -259,11 +288,17 @@ function renderResults(){
   const label = {good:"Looks good", watch:"Worth a look", fix:"Fix first"};
   scored.sort((a,b)=>b.s-a.s);
   $("rRooms").innerHTML = scored.map(r=>{
-    const items = r.issues.filter(x=>x.q.item).map(x=>`<li>${x.q.item}</li>`).join("");
+    const shopItems = r.issues.filter(x=>x.q.item && SHOP[x.q.item]);
+    const items = r.issues.filter(x=>x.q.item).map(x=>{
+      const p = SHOP[x.q.item];
+      return `<li>${x.q.item}${p ? ` <a class="shoplink" href="${p.href}">${p.label || "Shop · " + p.price}</a>` : ""}</li>`;
+    }).join("");
+    const kitLink = (SHOP_KITS[r.k] && shopItems.length >= 2)
+      ? `<p class="kitlink"><a href="${SHOP_KITS[r.k].href}">${SHOP_KITS[r.k].label}</a></p>` : "";
     const list = r.issues.length
       ? `<ul>${r.issues.map(x=>`<li>${x.q.issue}${x.unsure?` <span class="unsure">(not sure – worth checking)</span>`:""}</li>`).join("")}</ul>`
       : `<p>Nothing to fix here right now.</p>`;
-    const kit = items ? `<div class="kit"><strong>What helps: ${ROOMS[r.k].kit}</strong><ul>${items}</ul></div>` : "";
+    const kit = items ? `<div class="kit"><strong>What helps: ${ROOMS[r.k].kit}</strong><ul>${items}</ul>${kitLink}</div>` : "";
     return `<article class="roomcard"><div class="roomhead"><h3>${ROOMS[r.k].name}</h3><span class="pill ${r.state}">${label[r.state]}</span></div>${list}${kit}</article>`;
   }).join("");
   show("results");
