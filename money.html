@@ -24,35 +24,35 @@
 </aside>
 <div class="app-main">
 <header class="app-topbar">
-<div><b>Money Snapshot</b><div class="context">Parent / Loved One</div></div>
+<div><b>Money Snapshot</b><div class="context" data-parent-name="">Parent / Loved One</div></div>
 <a class="quick-action" href="scan.html">＋ Add / Scan</a>
 </header>
-<main class="app-content"><section class="app-page-hero"><div class="app-page-hero-copy"><div class="page-section-label">See the financial picture</div><h1>Money Snapshot </h1><p>Understand what your parent has coming in, what goes out each month, and what may realistically be available for care.</p><div class="page-help"><div class="page-help-icon">✓</div><div><b>How this helps</b><span>Care decisions get easier when you can see the monthly picture clearly instead of guessing from account balances or scattered bills.</span></div></div></div><div class="app-page-hero-img"><img alt="Money Snapshot planning visual" src="money-hero.png"/></div></section><div class="plus-feature-note free-plus" data-plus-note="money"><span class="plus-key">✓</span><div><b>Start free</b><span>Free includes the basic Money Snapshot: income, obligations, savings and a simple care budget. <b>Plus</b> adds projections, deeper planning and expanded tools.</span></div></div><section class="feature-intro-row"><div class="feature-intro-card"><b>See dependable income</b><span>Capture Social Security, pensions and other monthly resources.</span></div><div class="feature-intro-card gold"><b>Know recurring obligations</b><span>See what is already committed before estimating a care budget.</span></div><div class="feature-intro-card coral"><b>Plan for care costs</b><span>Use the available monthly amount to compare real facility options.</span></div></section>
+<main class="app-content" data-store-section="money"><section class="app-page-hero"><div class="app-page-hero-copy"><div class="page-section-label">See the financial picture</div><h1>Money Snapshot </h1><p>Understand what your parent has coming in, what goes out each month, and what may realistically be available for care.</p><div class="page-help"><div class="page-help-icon">✓</div><div><b>How this helps</b><span>Care decisions get easier when you can see the monthly picture clearly instead of guessing from account balances or scattered bills.</span></div></div></div><div class="app-page-hero-img"><img alt="Money Snapshot planning visual" src="money-hero.png"/></div></section><div class="plus-feature-note free-plus" data-plus-note="money"><span class="plus-key">✓</span><div><b>Start free</b><span>Free includes the basic Money Snapshot: income, obligations, savings and a simple care budget. <b>Plus</b> adds projections, deeper planning and expanded tools.</span></div></div><section class="feature-intro-row"><div class="feature-intro-card"><b>See dependable income</b><span>Capture Social Security, pensions and other monthly resources.</span></div><div class="feature-intro-card gold"><b>Know recurring obligations</b><span>See what is already committed before estimating a care budget.</span></div><div class="feature-intro-card coral"><b>Plan for care costs</b><span>Use the available monthly amount to compare real facility options.</span></div></section>
 <p>Enter dependable monthly income and ongoing obligations. The calculator estimates how much may be available each month for future care.</p>
 <section class="grid2 section">
 <div class="card">
 <h2>Monthly income &amp; resources</h2>
-<div class="money-row"><span>Social Security</span><input class="income money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Pension</span><input class="income money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Retirement / investment income</span><input class="income money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Long-term-care insurance benefit</span><input class="income money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Rental / other recurring income</span><input class="income money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Other dependable income</span><input class="income money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Social Security</span><input class="income money-input" data-key="income_social_security" type="number" min="0" inputmode="decimal" value="0" aria-label="Social Security"/></div>
+<div class="money-row"><span>Pension</span><input class="income money-input" data-key="income_pension" type="number" min="0" inputmode="decimal" value="0" aria-label="Pension"/></div>
+<div class="money-row"><span>Retirement / investment income</span><input class="income money-input" data-key="income_retirement" type="number" min="0" inputmode="decimal" value="0" aria-label="Retirement / investment income"/></div>
+<div class="money-row"><span>Long-term-care insurance benefit</span><input class="income money-input" data-key="income_ltc" type="number" min="0" inputmode="decimal" value="0" aria-label="Long-term-care insurance benefit"/></div>
+<div class="money-row"><span>Rental / other recurring income</span><input class="income money-input" data-key="income_rental" type="number" min="0" inputmode="decimal" value="0" aria-label="Rental / other recurring income"/></div>
+<div class="money-row"><span>Other dependable income</span><input class="income money-input" data-key="income_other" type="number" min="0" inputmode="decimal" value="0" aria-label="Other dependable income"/></div>
 </div>
 <div class="card">
 <h2>Ongoing monthly obligations</h2>
-<div class="money-row"><span>Housing / home costs</span><input class="expense money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Health / Medicare premiums</span><input class="expense money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Medical / prescriptions</span><input class="expense money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Insurance</span><input class="expense money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Debt payments</span><input class="expense money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Personal / other</span><input class="expense money-input" type="number" value="0"/></div>
-<div class="money-row"><span>Safety cushion</span><input class="expense money-input" type="number" value="0"/></div>
+<div class="money-row"><span>Housing / home costs</span><input class="expense money-input" data-key="exp_housing" type="number" min="0" inputmode="decimal" value="0" aria-label="Housing / home costs"/></div>
+<div class="money-row"><span>Health / Medicare premiums</span><input class="expense money-input" data-key="exp_premiums" type="number" min="0" inputmode="decimal" value="0" aria-label="Health / Medicare premiums"/></div>
+<div class="money-row"><span>Medical / prescriptions</span><input class="expense money-input" data-key="exp_medical" type="number" min="0" inputmode="decimal" value="0" aria-label="Medical / prescriptions"/></div>
+<div class="money-row"><span>Insurance</span><input class="expense money-input" data-key="exp_insurance" type="number" min="0" inputmode="decimal" value="0" aria-label="Insurance"/></div>
+<div class="money-row"><span>Debt payments</span><input class="expense money-input" data-key="exp_debt" type="number" min="0" inputmode="decimal" value="0" aria-label="Debt payments"/></div>
+<div class="money-row"><span>Personal / other</span><input class="expense money-input" data-key="exp_personal" type="number" min="0" inputmode="decimal" value="0" aria-label="Personal / other"/></div>
+<div class="money-row"><span>Safety cushion</span><input class="expense money-input" data-key="exp_cushion" type="number" min="0" inputmode="decimal" value="0" aria-label="Safety cushion"/></div>
 </div>
 </section>
 <section class="card section">
 <label>Liquid savings available for future care</label>
-<input class="money-input" id="careSavings" type="number" value="0"/>
+<input class="money-input" data-key="care_savings" id="careSavings" type="number" min="0" inputmode="decimal" value="0"/>
 <div class="result">
 <span class="small">Estimated monthly amount available for care</span>
 <strong id="availableCare">$0/mo</strong>
@@ -64,5 +64,5 @@
 </div>
 <nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="" href="information.html"><span class="ico">◎</span>Essentials</a><a class="active" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
 <script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script></body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="plan-store.js"></script></body>
 </html>

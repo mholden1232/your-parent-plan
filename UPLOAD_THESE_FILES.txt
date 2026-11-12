@@ -1,23 +1,8 @@
-YOUR PARENT PLAN — ACTUAL SITE PHOTO REDESIGN
+YOUR PARENT PLAN: FILES
 
-Upload all files in this folder to the root of your GitHub repository.
-Replace matching files when GitHub asks.
+This repository is the whole website. If you upload by hand instead of
+publishing from GitHub, upload every .html, .css, .js and .png file in the
+top folder. Do NOT replace supabase-config.js.
 
-Updated pages:
-- index.html
-- plan.html
-- information.html (Essentials)
-- money.html
-- care.html
-- scan.html
-- pricing.html
-- styles.css
-
-Photo-only hero assets (NO website screenshots):
-- my-plan-hero.png
-- parent-info-hero.png
-- money-hero.png
-- care-hero.png
-- scan-hero.png
-
-Do NOT replace supabase-config.js. Your existing Supabase connection stays as-is.
+The supabase/ folder and the .sql files are NOT website files. They are
+set up once in Supabase and Stripe; see SETUP_SAVING_UPLOADS_PAYMENTS.txt.

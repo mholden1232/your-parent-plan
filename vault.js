@@ -61,13 +61,17 @@
   async function init(){
     client = window.yppAuthClient;
     if(!client){
-      window.location.href = 'login.html';
+      msg('The Password Vault needs your account connection, which isn’t available right now. Please reload or try again later.', 'error');
       return;
     }
 
     const {data, error} = await client.auth.getUser();
     if(error || !data?.user){
-      window.location.href = 'login.html';
+      const el = qs('vaultMessage');
+      if(el){
+        el.className = 'auth-message show error';
+        el.innerHTML = 'Please <a href="login.html?next=vault.html"><b>log in</b></a> to open your Password Vault.';
+      }
       return;
     }
     user = data.user;

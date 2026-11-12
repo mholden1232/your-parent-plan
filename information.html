@@ -24,7 +24,7 @@
 </aside>
 <div class="app-main">
 <header class="app-topbar">
-<div><b>Essentials</b><div class="context">Parent / Loved One</div></div>
+<div><b>Essentials</b><div class="context" data-parent-name="">Parent / Loved One</div></div>
 <a class="quick-action" href="scan.html">＋ Add / Scan</a>
 </header>
 <main class="app-content">
@@ -42,23 +42,23 @@
 <div class="feature-intro-card coral"><b>Legal &amp; Insurance</b><span>Know what exists and where the important documents are located.</span></div>
 <div class="feature-intro-card gold"><b>Digital Life</b><span>Paid members can securely organize website logins and passwords in one dedicated vault.</span></div>
 </section>
-<section class="grid2 section">
+<section class="grid2 section" data-store-section="essentials">
 <div class="card">
 <h2>Emergency Basics</h2>
-<label>Emergency contact</label><textarea></textarea>
-<label>Primary doctor</label><textarea></textarea>
-<label>Pharmacy</label><textarea></textarea>
-<label>Current medications</label><textarea placeholder="Name, dosage, prescriber and pharmacy"></textarea>
-<label>Allergies / important conditions</label><textarea></textarea>
-<label>Preferred hospital</label><textarea></textarea>
+<label for="ess-emergencyContact">Emergency contact</label><textarea id="ess-emergencyContact" data-key="emergencyContact"></textarea>
+<label for="ess-primaryDoctor">Primary doctor</label><textarea id="ess-primaryDoctor" data-key="primaryDoctor"></textarea>
+<label for="ess-pharmacy">Pharmacy</label><textarea id="ess-pharmacy" data-key="pharmacy"></textarea>
+<label for="ess-medications">Current medications</label><textarea id="ess-medications" data-key="medications" placeholder="Name, dosage, prescriber and pharmacy"></textarea>
+<label for="ess-allergies">Allergies / important conditions</label><textarea id="ess-allergies" data-key="allergies"></textarea>
+<label for="ess-hospital">Preferred hospital</label><textarea id="ess-hospital" data-key="hospital"></textarea>
 </div>
 <div class="card">
 <h2>Legal &amp; Insurance</h2>
-<label>Health-care proxy / medical POA</label><textarea placeholder="Who has it and where is the document?"></textarea>
-<label>Financial power of attorney</label><textarea placeholder="Who has it and where is the document?"></textarea>
-<label>Will / trust / advance directive</label><textarea placeholder="What exists and where is it kept?"></textarea>
-<label>Health / Medicare insurance</label><textarea></textarea>
-<label>Long-term-care / life insurance</label><textarea></textarea>
+<label for="ess-healthProxy">Health-care proxy / medical POA</label><textarea id="ess-healthProxy" data-key="healthProxy" placeholder="Who has it and where is the document?"></textarea>
+<label for="ess-financialPoa">Financial power of attorney</label><textarea id="ess-financialPoa" data-key="financialPoa" placeholder="Who has it and where is the document?"></textarea>
+<label for="ess-willTrust">Will / trust / advance directive</label><textarea id="ess-willTrust" data-key="willTrust" placeholder="What exists and where is it kept?"></textarea>
+<label for="ess-healthInsurance">Health / Medicare insurance</label><textarea id="ess-healthInsurance" data-key="healthInsurance"></textarea>
+<label for="ess-ltcLifeInsurance">Long-term-care / life insurance</label><textarea id="ess-ltcLifeInsurance" data-key="ltcLifeInsurance"></textarea>
 </div>
 </section>
 <section class="card section">
@@ -68,13 +68,25 @@
 <h2>Who would we call?</h2>
 <p class="small">Attorney, financial advisor, insurance agent, accountant, doctors, trusted neighbors or anyone else your family may need.</p>
 </div>
-<button class="btn secondary" type="button">＋ Add Person</button>
+<button class="btn secondary" id="addPersonBtn" type="button">＋ Add person</button>
 </div>
-<div class="grid3">
-<div class="question-card"><b>Name &amp; role</b><p class="small">Who they are and why your family might need them.</p></div>
-<div class="question-card"><b>Contact information</b><p class="small">Phone, email and organization.</p></div>
-<div class="question-card"><b>What they handle</b><p class="small">A quick note so siblings know when to call this person.</p></div>
+<form class="person-form" hidden id="personForm">
+<h3 id="personFormTitle">Add a person</h3>
+<input id="personId" type="hidden"/>
+<div class="grid2">
+<div><label for="personName">Name</label><input autocomplete="off" id="personName" required type="text"/></div>
+<div><label for="personRole">Role</label><input autocomplete="off" id="personRole" placeholder="Attorney, neighbor, financial advisor…" type="text"/></div>
+<div><label for="personPhone">Phone</label><input autocomplete="off" id="personPhone" type="tel"/></div>
+<div><label for="personEmail">Email</label><input autocomplete="off" id="personEmail" type="email"/></div>
 </div>
+<label for="personOrg">Organization</label><input autocomplete="off" id="personOrg" type="text"/>
+<label for="personNotes">What they handle</label><textarea id="personNotes" placeholder="A quick note so siblings know when to call this person."></textarea>
+<div class="hero-actions">
+<button class="btn primary" type="submit">Save person</button>
+<button class="btn secondary" id="cancelPersonBtn" type="button">Cancel</button>
+</div>
+</form>
+<div class="people-list" id="peopleList"></div>
 </section>
 <section class="card section vault-card" data-membership-gate="">
 <div class="vault-head">
@@ -104,5 +116,5 @@
 </div>
 <nav class="app-bottom-nav"><a class="" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="active" href="information.html"><span class="ico">◎</span>  Essentials</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
 <script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="membership.js"></script></body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="plan-store.js"></script><script src="membership.js"></script><script src="essentials.js"></script></body>
 </html>

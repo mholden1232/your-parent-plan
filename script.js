@@ -93,29 +93,30 @@
 })();
 
 (function(){
-  const STORAGE_KEY='ypp-preparedness-v1';
+  // Preparedness checklist: saved to the account via plan-store.js.
+  const LEGACY_KEY='ypp-preparedness-v1';
+  let state={};
 
-  function loadPrep(){
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'); }
-    catch(e){ return {}; }
+  function persist(){
+    if(window.yppStore) window.yppStore.save('checklist', state);
+    else { try { localStorage.setItem(LEGACY_KEY, JSON.stringify(state)); } catch(e){} }
   }
 
-  function savePrep(state){
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e){}
-  }
-
-  function updatePreparedness(){
+  async function updatePreparedness(){
     const checks=[...document.querySelectorAll('.prep-check')];
     if(!checks.length) return;
 
-    const state=loadPrep();
+    if(window.yppStore){
+      state=(await window.yppStore.load('checklist',{legacyKey:LEGACY_KEY}))||{};
+    } else {
+      try { state=JSON.parse(localStorage.getItem(LEGACY_KEY)||'{}'); } catch(e){ state={}; }
+    }
     checks.forEach((cb,i)=>{
       const key=cb.dataset.label || ('item-'+i);
       if(state[key] !== undefined) cb.checked=!!state[key];
       cb.onchange=function(){
-        const current=loadPrep();
-        current[key]=cb.checked;
-        savePrep(current);
+        state[key]=cb.checked;
+        persist();
         renderPreparedness();
       };
     });
@@ -146,7 +147,9 @@
         missing.forEach((cb,idx)=>{
           const el=document.createElement('div');
           el.className='mini';
-          el.innerHTML='<b>'+(idx+1)+'. '+(cb.dataset.label || 'Complete this item')+'</b>';
+          const b=document.createElement('b');
+          b.textContent=(idx+1)+'. '+(cb.dataset.label || 'Complete this item');
+          el.appendChild(b);
           next.appendChild(el);
         });
       }
@@ -154,4 +157,28 @@
   }
 
   document.addEventListener('DOMContentLoaded', updatePreparedness);
+})();
+
+(function(){
+  // Auto-save simple fields: any [data-store-section] container whose
+  // fields carry data-key="..." (Money, Essentials, the parent's name).
+  document.addEventListener('DOMContentLoaded', ()=>{
+    if(!window.yppStore) return;
+    document.querySelectorAll('[data-store-section]').forEach(root=>{
+      const section=root.dataset.storeSection;
+      if(!root.querySelector('[data-key]')) return;
+      window.yppStore.bindFields(root,section,()=>{
+        const first=root.querySelector('.money-input');
+        if(first) first.dispatchEvent(new Event('input',{bubbles:true}));
+        root.querySelectorAll('select[data-key]').forEach(sel=>sel.dispatchEvent(new Event('change',{bubbles:true})));
+      });
+      if(section==='profile'){
+        root.addEventListener('input',e=>{
+          if(e.target.dataset.key!=='parentName') return;
+          const name=e.target.value.trim()||'Parent / Loved One';
+          document.querySelectorAll('.app-profile b, .app-topbar .context[data-parent-name]').forEach(el=>{el.textContent=name;});
+        });
+      }
+    });
+  });
 })();

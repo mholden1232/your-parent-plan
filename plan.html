@@ -24,7 +24,7 @@
 </aside>
 <div class="app-main">
 <header class="app-topbar">
-<div><b>My Plan</b><div class="context">Parent / Loved One</div></div>
+<div><b>My Plan</b><div class="context" data-parent-name="">Parent / Loved One</div></div>
 <a class="quick-action" href="scan.html">＋ Add / Scan</a>
 </header>
 <main class="app-content"><section class="app-page-hero"><div class="app-page-hero-copy"><div class="page-section-label">Your family roadmap</div><h1>My Plan</h1><p>Everything you need to help manage your parent’s needs, organized in one place. See what’s complete, what still needs attention, and what to do next.</p><div class="page-help"><div class="page-help-icon">✓</div><div><b>How this helps</b><span>You do not have to remember everything at once. Your plan keeps the important pieces visible and turns missing items into manageable next steps.</span></div></div></div><div class="app-page-hero-img"><img alt="My Plan planning visual" src="my-plan-hero.png"/></div></section><section class="feature-intro-row"><div class="feature-intro-card coral"><b>See what needs attention</b><span>Your score and checklist make gaps easy to spot.</span></div><div class="feature-intro-card gold"><b>Know what to do next</b><span>Your Next 3 Things keeps the list from feeling overwhelming.</span></div><div class="feature-intro-card"><b>Keep the big picture together</b><span>Information, money and care planning stay connected.</span></div></section>
@@ -36,9 +36,9 @@
 </div>
 </section>
 <section class="grid2">
-<div class="card">
-<label>Parent / loved one's name</label>
-<input placeholder="Name" type="text"/>
+<div class="card" data-store-section="profile">
+<label for="parentName">Parent / loved one's name</label>
+<input data-key="parentName" id="parentName" placeholder="Name" type="text" autocomplete="off"/>
 <h3>Preparedness</h3>
 <div class="score" id="preparednessScore">0%</div>
 <div class="progress"><div id="preparednessBar" style="width:0%"></div></div>
@@ -72,5 +72,5 @@
 </div>
 <nav class="app-bottom-nav"><a class="active" href="plan.html"><span class="ico">⌂</span>My Plan</a><a class="" href="information.html"><span class="ico">◎</span>Essentials</a><a class="" href="money.html"><span class="ico">$</span>Money</a><a class="" href="care.html"><span class="ico">◇</span>Care</a><a class="" href="scan.html"><span class="ico">▣</span>Scan</a></nav>
 <script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="auth.js"></script></body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous"></script><script src="supabase-config.js"></script><script src="auth.js"></script><script src="plan-store.js"></script><script src="membership.js"></script><script src="billing.js"></script></body>
 </html>
