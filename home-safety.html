@@ -135,7 +135,7 @@ button{font:inherit; cursor:pointer}
 
   <section id="intro">
     <h1>How safe is your parent’s home?</h1>
-    <p class="lede">Eighteen quick questions, room by room. You’ll get a plain list of what to fix first and what helps.</p>
+    <p class="lede">Twelve quick questions, room by room. You’ll get a plain list of what to fix first and what helps.</p>
     <fieldset class="who" style="border:0;padding:0">
       <legend class="hint" style="margin-bottom:.6rem">Who is this for?</legend>
       <label><input type="radio" name="who" value="mom" checked><span>Mom</span></label>
@@ -143,7 +143,7 @@ button{font:inherit; cursor:pointer}
       <label><input type="radio" name="who" value="parent"><span>My parent</span></label>
     </fieldset>
     <button class="primary" id="start">Start the checklist</button>
-    <p class="fine">Takes about five minutes. Answer from what you’ve seen in the home.</p>
+    <p class="fine">Takes about three minutes. Answer from what you’ve seen in the home.</p>
   </section>
 
   <section id="quiz" hidden>
@@ -191,16 +191,10 @@ const Q = [
   {room:"bath", q:"Can {p} stand up from the toilet without pushing off the sink or wall?", safe:"yes", issue:"Hard to stand up from the toilet", item:"Raised toilet seat with handles"},
   {room:"bath", q:"Is there a night light along the path from the bed to the bathroom?", safe:"yes", issue:"Dark path to the bathroom at night", item:"Plug-in motion night lights"},
   {room:"bed", q:"Can {p} get in and out of bed without struggling?", safe:"yes", issue:"Trouble getting in and out of bed", item:"Bed assist handle"},
-  {room:"bed", q:"Can {p} reach a lamp and a phone without getting out of bed?", safe:"yes", issue:"Lamp or phone out of reach from bed", item:"Touch lamp and bedside organizer"},
   {room:"stairs", q:"Do the stairs have sturdy handrails on both sides?", hint:"No stairs in the home? Choose Yes.", safe:"yes", issue:"Stairs missing a sturdy handrail", item:"A second handrail, installed by a handyman"},
   {room:"stairs", q:"Are there loose rugs, cords, or clutter on walkways?", safe:"no", issue:"Rugs, cords, or clutter in walkways", item:"Rug grippers and cord covers"},
   {room:"stairs", q:"Are stairs and hallways well lit, with light switches at both ends?", safe:"yes", issue:"Dim stairs or hallways", item:"Motion-sensor lights and contrasting step-edge tape"},
-  {room:"stairs", q:"Is the main entrance step-free, or do the entry steps have a sturdy handrail?", safe:"yes", issue:"Entry steps without a sturdy handrail", item:"Entry handrail or threshold ramp"},
   {room:"kitchen", q:"Can {p} reach everyday dishes and food without a step stool?", safe:"yes", issue:"Reaching high shelves or climbing a step stool", item:"Reacher-grabber and a step stool with a handrail"},
-  {room:"kitchen", q:"Can {p} open doors and turn faucets easily, even on a sore-hands day?", safe:"yes", issue:"Round doorknobs or faucets that are hard to turn", item:"Lever handle converters and faucet turners"},
-  {room:"kitchen", q:"Can {p} stand up from a favorite chair without rocking or pushing hard?", safe:"yes", issue:"Hard to stand up from a favorite chair", item:"Furniture risers or a standing-assist handle"},
-  {room:"kitchen", q:"Does {p} take medications on schedule without mix-ups or missed doses?", hint:"No daily medications? Choose Yes.", safe:"yes", issue:"Missed or mixed-up medications", item:"Automatic pill dispenser with reminders"},
-  {room:"kitchen", q:"Are there working smoke and carbon monoxide detectors, tested in the last month?", safe:"yes", issue:"Smoke or carbon monoxide detectors not checked", item:"Smoke and carbon monoxide detectors"},
   {room:"kitchen", q:"If {p} fell and couldn’t reach a phone, is there a way to call for help?", safe:"yes", issue:"No way to call for help after a fall", item:"Medical alert device with fall detection"},
   {id:"fall", room:"kitchen", q:"Has {p} fallen in the past year?", hint:"Even a fall without an injury counts.", safe:"no", issue:"A fall in the past year", item:null}
 ];
