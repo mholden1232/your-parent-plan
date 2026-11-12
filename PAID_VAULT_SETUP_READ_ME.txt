@@ -39,8 +39,9 @@ Then sign out/sign back in and open:
 Essentials > Password Vault.
 
 IMPORTANT
-Payments are now connected: see SETUP_SAVING_UPLOADS_PAYMENTS.txt. The notes below
-about turning Plus on by hand in Supabase are still useful for testing.
+Payment checkout is not connected in this build. The database entitlement is real,
+but testing Plus status is activated manually in Supabase until Stripe/payment checkout
+is connected in the next payment build.
 
 VAULT PASSPHRASE
 The vault passphrase cannot be recovered because it is not stored.

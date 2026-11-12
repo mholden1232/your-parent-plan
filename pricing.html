@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -10,91 +11,55 @@
 <link href="home.css" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
 </head>
-<body class="home">
-
+<body>
 <header class="hnav">
   <a class="mark" href="index.html">Your Parent Plan</a>
   <nav aria-label="Main">
     <a href="how-it-works.html">How it works</a>
     <a href="home-safety.html">Home safety</a>
-    <a href="pricing.html" aria-current="page">Pricing</a>
+    <a href="pricing.html">Pricing</a>
     <a class="login" href="login.html">Log in</a>
     <a class="go" href="signup.html">Start free</a>
   </nav>
 </header>
-
-<main>
-  <section class="page-head">
-    <p class="eyebrow">Pricing</p>
-    <h1>Start free. Upgrade when you’re ready.</h1>
-    <p class="lede">No $10-a-month commitment. Choose monthly flexibility or save with the annual plan.</p>
-  </section>
-
-  <div class="billing-note">
-    <div class="auth-message" id="billingMessage" role="status"></div>
-    <div class="good" data-plus-status hidden>
-      <b>You’re on <span data-plus-tier>Plus</span>.</b> Update your card, switch plans or cancel any time.
-      <p style="margin:.75rem 0 0"><button class="btn secondary" data-manage-billing type="button">Manage billing</button></p>
-    </div>
-  </div>
-
-  <section class="pricing">
-    <div class="price-card">
-      <p class="eyebrow">Free</p>
-      <div class="price">$0</div>
-      <p><b>Start getting organized.</b></p>
-      <ul><li>Preparedness checklist + basic My Plan</li><li>Essentials: emergency, legal, insurance and important people</li><li>Money Snapshot and monthly care budget</li><li>Care comparison: up to 2 facilities</li><li>Scan &amp; Organize: store up to 10 documents</li><li>Your Next 3 Things from the checklist</li></ul>
-      <a class="btn secondary" href="signup.html">Get started free</a>
-    </div>
-    <div class="price-card">
-      <p class="eyebrow">Plus Monthly</p>
-      <div class="price">$4.99<span class="small">/month</span></div>
-      <p><b>Full access with no annual commitment.</b> <span class="small">Cancel anytime.</span></p>
-      <ul><li>Everything in Free</li><li>Digital Accounts &amp; Password Vault</li><li>Unlimited document storage in Scan &amp; Organize</li><li>Unlimited saved facilities</li><li>How long savings would last, year by year</li><li>Next steps picked from your whole plan</li><li>Share the plan with family (they don’t pay)</li></ul>
-      <a class="btn primary" data-plan="plus_monthly" href="signup.html?plan=plus_monthly">Choose monthly</a>
-    </div>
-    <div class="price-card best">
-      <span class="badge">Best value</span>
-      <p class="eyebrow">Plus Annual</p>
-      <div class="price">$39.99<span class="small">/year</span></div>
-      <p><b>About $3.33/month. Save about $20/year.</b></p>
-      <ul><li>Everything in Free</li><li>Digital Accounts &amp; Password Vault</li><li>Unlimited document storage in Scan &amp; Organize</li><li>Unlimited saved facilities</li><li>How long savings would last, year by year</li><li>Next steps picked from your whole plan</li><li>Share the plan with family (they don’t pay)</li></ul>
-      <a class="btn primary" data-plan="plus_annual" href="signup.html?plan=plus_annual">Choose annual</a>
-    </div>
-  </section>
-  <p class="small fine-print">Payments are handled securely by Stripe; your card details never touch our servers. Cancel any time from Manage billing, and Plus stays on until the end of the period you’ve paid for.</p>
-
-  <section class="questions spaced">
-    <div class="inner">
-      <h2>What am I paying for?</h2>
-      <p><b>You bring us the mess. Your Parent Plan helps organize it, surfaces what’s missing and gives you the next few things worth handling.</b></p>
-      <dl>
-        <dt>Less typing</dt>
-        <dd>Scan paperwork and review extracted information.</dd>
-        <dt>Know what matters next</dt>
-        <dd>Priorities update from missing records and incomplete checklist items.</dd>
-        <dt>Better facility decisions</dt>
-        <dd>Compare real costs against the parent’s money snapshot.</dd>
-        <dt>Keep the family organized</dt>
-        <dd>Invite siblings to view or edit the plan. The Password Vault always stays private to you.</dd>
-      </dl>
-    </div>
-  </section>
-
-  <section class="close">
-    <h2>Start with what you already know.</h2>
-    <a class="cta" href="signup.html">Start your plan, free</a>
-  </section>
+<main class="container">
+<div class="eyebrow">Pricing</div>
+<h1>Start free. Upgrade when you're ready.</h1>
+<p>No $10-a-month commitment. Choose monthly flexibility or save with the annual plan.</p>
+<section class="pricing section">
+<div class="price-card">
+<div class="eyebrow">Free</div><div class="price">$0</div>
+<p><b>Start getting organized.</b></p>
+<ul><li>Preparedness checklist + basic My Plan</li><li>Essentials: emergency, legal, insurance and important people</li><li>Basic Money Snapshot and care budget</li><li>Basic Care comparison</li><li>Limited Scan &amp; Organize access</li><li>See Plus features before upgrading</li></ul>
+<a class="btn secondary" href="signup.html">Get started free</a></div>
+<div class="price-card">
+<div class="eyebrow">Plus Monthly</div><div class="price">$4.99<span class="small">/month</span></div>
+<p><b>Full access with no annual commitment.</b></p>
+<ul><li>Everything in Free</li><li>Digital Accounts &amp; Password Vault</li><li>Unlimited Scan &amp; Organize</li><li>Multiple saved facilities + full comparisons</li><li>Pros / cons, detailed cost buckets and future projections</li><li>Advanced Money Snapshot + projections</li><li>Smart next-step priorities</li><li>Expanded secure storage and future family-sharing tools</li></ul>
+<p class="small">Cancel anytime.</p>
+<a class="btn primary" href="signup.html">Create account</a></div>
+<div class="price-card best">
+<span class="badge">BEST VALUE</span>
+<div class="eyebrow" style="margin-top:8px">Plus Annual</div>
+<div class="price">$39.99<span class="small">/year</span></div>
+<p><b>About $3.33/month. Save about $20/year.</b></p>
+<ul><li>Everything in Free</li><li>Digital Accounts &amp; Password Vault</li><li>Unlimited Scan &amp; Organize</li><li>Multiple saved facilities + full comparisons</li><li>Pros / cons, detailed cost buckets and future projections</li><li>Advanced Money Snapshot + projections</li><li>Smart next-step priorities</li><li>Expanded secure storage and future family-sharing tools</li></ul>
+<a class="btn primary" href="signup.html">Create account</a></div>
+</section><p class="small">Payment checkout is the next connection step. Plus access is enforced in the app and database; during testing, a Plus membership can be activated in Supabase.</p>
+<section class="card section">
+<h2>What am I paying for?</h2>
+<p><b>You bring us the mess. Your Parent Plan helps organize it, surfaces what's missing and gives you the next few things worth handling.</b></p>
+<div class="grid2">
+<div class="value-card"><b>Less typing</b><span class="small">Scan paperwork and review extracted information.</span></div>
+<div class="value-card"><b>Know what matters next</b><span class="small">Priorities update from missing records and incomplete checklist items.</span></div>
+<div class="value-card"><b>Better facility decisions</b><span class="small">Compare real costs against the parent's money snapshot.</span></div>
+<div class="value-card"><b>Keep the family organized</b><span class="small">Share information while controlling access to sensitive sections.</span></div>
+</div>
+</section>
 </main>
-
 <footer class="hfoot">
-  <a href="help.html">Help</a> · Your Parent Plan is an organizational tool. It isn’t legal, medical, tax, or financial advice.
+  Your Parent Plan is an organizational tool. It isn’t legal, medical, tax, or financial advice.
 </footer>
 <script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous"></script>
-<script src="supabase-config.js"></script>
-<script src="auth.js"></script>
-<script src="membership.js"></script>
-<script src="billing.js"></script>
 </body>
 </html>

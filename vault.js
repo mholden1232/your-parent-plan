@@ -61,17 +61,13 @@
   async function init(){
     client = window.yppAuthClient;
     if(!client){
-      msg('The Password Vault needs your account connection, which isn’t available right now. Please reload or try again later.', 'error');
+      window.location.href = 'login.html';
       return;
     }
 
     const {data, error} = await client.auth.getUser();
     if(error || !data?.user){
-      const el = qs('vaultMessage');
-      if(el){
-        el.className = 'auth-message show error';
-        el.innerHTML = 'Please <a href="login.html?next=vault.html"><b>log in</b></a> to open your Password Vault.';
-      }
+      window.location.href = 'login.html';
       return;
     }
     user = data.user;
@@ -315,27 +311,7 @@
     await loadItems();
   }
 
-  async function resetVault(){
-    if(qs('vaultResetConfirm').value.trim() !== 'RESET') return;
-    if(!confirm('Permanently delete every saved password and reset the vault?')) return;
-    qs('vaultResetBtn').disabled = true;
-    const {error: itemsErr} = await client.from('vault_items').delete().eq('user_id', user.id);
-    const {error: settingsErr} = itemsErr ? {error:null} : await client.from('vault_settings').delete().eq('user_id', user.id);
-    if(itemsErr || settingsErr){
-      qs('vaultResetBtn').disabled = false;
-      msg((itemsErr || settingsErr).message || 'The vault could not be reset.', 'error');
-      return;
-    }
-    key = null;
-    qs('vaultResetConfirm').value = '';
-    qs('vaultUnlock').hidden = true;
-    qs('vaultSetup').hidden = false;
-    msg('Vault reset. Create a new passphrase to start again.', 'success');
-  }
-
   document.addEventListener('DOMContentLoaded', ()=>{
-    qs('vaultResetConfirm')?.addEventListener('input', ()=>{ qs('vaultResetBtn').disabled = qs('vaultResetConfirm').value.trim() !== 'RESET'; });
-    qs('vaultResetBtn')?.addEventListener('click', resetVault);
     qs('createVaultBtn')?.addEventListener('click', createVault);
     qs('unlockVaultBtn')?.addEventListener('click', unlockVault);
     qs('addVaultItemBtn')?.addEventListener('click', ()=>openForm());

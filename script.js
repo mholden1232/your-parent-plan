@@ -93,30 +93,29 @@
 })();
 
 (function(){
-  // Preparedness checklist: saved to the account via plan-store.js.
-  const LEGACY_KEY='ypp-preparedness-v1';
-  let state={};
+  const STORAGE_KEY='ypp-preparedness-v1';
 
-  function persist(){
-    if(window.yppStore) window.yppStore.save('checklist', state);
-    else { try { localStorage.setItem(LEGACY_KEY, JSON.stringify(state)); } catch(e){} }
+  function loadPrep(){
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'); }
+    catch(e){ return {}; }
   }
 
-  async function updatePreparedness(){
+  function savePrep(state){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e){}
+  }
+
+  function updatePreparedness(){
     const checks=[...document.querySelectorAll('.prep-check')];
     if(!checks.length) return;
 
-    if(window.yppStore){
-      state=(await window.yppStore.load('checklist',{legacyKey:LEGACY_KEY}))||{};
-    } else {
-      try { state=JSON.parse(localStorage.getItem(LEGACY_KEY)||'{}'); } catch(e){ state={}; }
-    }
+    const state=loadPrep();
     checks.forEach((cb,i)=>{
       const key=cb.dataset.label || ('item-'+i);
       if(state[key] !== undefined) cb.checked=!!state[key];
       cb.onchange=function(){
-        state[key]=cb.checked;
-        persist();
+        const current=loadPrep();
+        current[key]=cb.checked;
+        savePrep(current);
         renderPreparedness();
       };
     });
@@ -135,9 +134,7 @@
     if(bar) bar.style.width=pct+'%';
 
     const next=document.getElementById('nextThreeList');
-    if(next && window.yppNextSteps && window.yppStore){
-      window.yppNextSteps(checks,next);
-    } else if(next){
+    if(next){
       next.innerHTML='';
       const missing=checks.filter(cb=>!cb.checked).slice(0,3);
       if(!missing.length){
@@ -149,9 +146,7 @@
         missing.forEach((cb,idx)=>{
           const el=document.createElement('div');
           el.className='mini';
-          const b=document.createElement('b');
-          b.textContent=(idx+1)+'. '+(cb.dataset.label || 'Complete this item');
-          el.appendChild(b);
+          el.innerHTML='<b>'+(idx+1)+'. '+(cb.dataset.label || 'Complete this item')+'</b>';
           next.appendChild(el);
         });
       }
@@ -159,28 +154,4 @@
   }
 
   document.addEventListener('DOMContentLoaded', updatePreparedness);
-})();
-
-(function(){
-  // Auto-save simple fields: any [data-store-section] container whose
-  // fields carry data-key="..." (Money, Essentials, the parent's name).
-  document.addEventListener('DOMContentLoaded', ()=>{
-    if(!window.yppStore) return;
-    document.querySelectorAll('[data-store-section]').forEach(root=>{
-      const section=root.dataset.storeSection;
-      if(!root.querySelector('[data-key]')) return;
-      window.yppStore.bindFields(root,section,()=>{
-        const first=root.querySelector('.money-input');
-        if(first) first.dispatchEvent(new Event('input',{bubbles:true}));
-        root.querySelectorAll('select[data-key]').forEach(sel=>sel.dispatchEvent(new Event('change',{bubbles:true})));
-      });
-      if(section==='profile'){
-        root.addEventListener('input',e=>{
-          if(e.target.dataset.key!=='parentName') return;
-          const name=e.target.value.trim()||'Parent / Loved One';
-          document.querySelectorAll('.app-profile b, .app-topbar .context[data-parent-name]').forEach(el=>{el.textContent=name;});
-        });
-      }
-    });
-  });
 })();
