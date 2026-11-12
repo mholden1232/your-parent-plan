@@ -5,7 +5,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--text,"Figtree",system-ui,sans-serif)}
 a{color:inherit}
 .site-nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 20px}
 .brandmark{font-size:20px;font-weight:900;color:var(--brand);text-decoration:none;letter-spacing:-.02em}
@@ -187,7 +187,7 @@ textarea{min-height:80px}
 .app-content{max-width:1180px;padding:28px 28px 100px}
 .app-page-hero{grid-template-columns:.92fr 1.08fr;border:0;border-radius:26px;background:#fff;box-shadow:0 16px 45px rgba(30,65,55,.09);min-height:340px}
 .app-page-hero-copy{padding:34px 34px 32px}
-.app-page-hero-copy h1{font-family:Georgia,'Times New Roman',serif;font-size:48px;line-height:1.02;letter-spacing:-.035em;margin:8px 0 13px}
+.app-page-hero-copy h1{font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif);font-size:48px;line-height:1.02;letter-spacing:-.035em;margin:8px 0 13px}
 .app-page-hero-copy p{font-size:18px;line-height:1.55}
 .app-page-hero-img{min-height:340px;background:#e9eee9}
 .app-page-hero-img img{width:100%;height:100%;object-fit:cover;display:block}
@@ -331,11 +331,11 @@ textarea{min-height:80px}
 /* 2. Type */
 body,.app-body,.app-main,.auth-page{
   background:var(--paper); color:var(--ink);
-  font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-family:var(--text,"Figtree",system-ui,sans-serif);
   font-size:1.0625rem; line-height:1.6;
 }
 h1,h2,h3,.app-page-hero-copy h1,.brandmark,.app-brand,.auth-logo,.score,.price,.result strong{
-  font-family:"Newsreader",Georgia,"Times New Roman",serif; font-weight:500; letter-spacing:-.01em;
+  font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif); font-weight:500; letter-spacing:-.01em;
 }
 h1,.app-content h1,.app-page-hero-copy h1{font-size:clamp(2.2rem,4.6vw,3.2rem); line-height:1.08; color:var(--green)}
 h2{font-size:clamp(1.5rem,2.8vw,1.9rem); line-height:1.2; color:var(--green)}
@@ -372,7 +372,7 @@ body .facility-card,body .cost-panel{
 .tilelink:hover .card,.tilelink:hover .mobile-card{border-color:var(--green)!important; transform:none}
 .price-card.best{border:1px solid var(--rule)!important; border-top:6px solid var(--green)!important}
 .price,.score{color:var(--green)}
-.price .small{font-family:"Public Sans",system-ui,sans-serif; font-size:.95rem}
+.price .small{font-family:var(--text,"Figtree",system-ui,sans-serif); font-size:.95rem}
 .vault-card{border-top:6px solid var(--gold)!important}
 .vault-lock,.page-help-icon{background:var(--gold-tint)!important; border:1px solid var(--gold); border-radius:6px; color:var(--gold)}
 .page-help-icon{border-radius:50%; background:transparent!important; border:1.5px solid var(--green); color:var(--green)}
@@ -441,7 +441,7 @@ input:focus-visible,textarea:focus-visible,select:focus-visible,.btn:focus-visib
 
 /* 8. Top bar, bottom bar (phones), headers on the public pages */
 .app-topbar{background:var(--paper)!important; border-bottom:1px solid var(--rule)!important; box-shadow:none!important}
-.app-topbar b{font-family:"Newsreader",Georgia,serif; font-weight:500; font-size:1.2rem; color:var(--green)}
+.app-topbar b{font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif); font-weight:500; font-size:1.2rem; color:var(--green)}
 .app-topbar .context{color:var(--muted)}
 .app-topbar{flex-wrap:wrap}
 .app-topbar > div.small[style]{color:var(--gold)!important; flex-basis:100%; order:3} /* "prototype preview" note */
@@ -488,7 +488,7 @@ input:focus-visible,textarea:focus-visible,select:focus-visible,.btn:focus-visib
 .kit-choose p{color:var(--muted)}
 .kit-choose p b{color:var(--ink)}
 a.cta.kit-buy{display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-top:.75rem; color:var(--on-green); text-decoration:none}
-.kit-buy b{font-family:"Newsreader",Georgia,serif; font-weight:500; font-size:1.35rem}
+.kit-buy b{font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif); font-weight:500; font-size:1.35rem}
 .shop-fine{font-size:.88rem; margin-top:1rem}
 
 .shop-list{max-width:68rem; margin:0 auto; padding:0 1.5rem 4.5rem}
@@ -498,7 +498,7 @@ a.cta.kit-buy{display:flex; justify-content:space-between; align-items:center; g
 .products{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem}
 .product{display:flex; flex-direction:column; background:var(--sheet); border:1px solid var(--rule); border-radius:6px; padding:1.4rem 1.4rem 1.25rem}
 .product h3{margin:0; font-size:1.3rem; line-height:1.2}
-.product .price{font-family:"Newsreader",Georgia,serif; font-size:1.6rem; color:var(--green); margin:.35rem 0 .5rem}
+.product .price{font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif); font-size:1.6rem; color:var(--green); margin:.35rem 0 .5rem}
 .product p{margin:0 0 .75rem; font-size:.97rem}
 .product .product-note{font-size:.88rem; color:var(--muted); padding-top:.6rem; border-top:1px dashed var(--rule)}
 .product .btn{margin-top:auto; text-align:center; text-decoration:none}

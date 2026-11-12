@@ -22,16 +22,16 @@
 *,*::before,*::after{box-sizing:border-box}
 body.home{
   margin:0; background:var(--paper); color:var(--ink);
-  font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-family:var(--text,"Figtree",system-ui,sans-serif);
   font-size:1.0625rem; line-height:1.6;
 }
 .home a{color:inherit}
-.home h1,.home h2,.home h3,.home blockquote{font-family:"Newsreader",Georgia,"Times New Roman",serif; font-weight:500; letter-spacing:-.01em; margin:0}
+.home h1,.home h2,.home h3,.home blockquote{font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif); font-weight:500; letter-spacing:-.01em; margin:0}
 .wrap{max-width:68rem; margin:0 auto; padding:0 1.5rem}
 
 /* Nav */
 .hnav{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.25rem 1.5rem; max-width:68rem; margin:0 auto}
-.hnav .mark{font-family:"Newsreader",Georgia,serif; font-size:1.4rem; font-weight:600; color:var(--green); text-decoration:none}
+.hnav .mark{font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif); font-size:1.4rem; font-weight:600; color:var(--green); text-decoration:none}
 .hnav nav{display:flex; align-items:center; gap:1.5rem; font-size:.95rem}
 .hnav nav a{text-decoration:none; color:var(--ink)}
 .hnav nav a:hover{text-decoration:underline; text-underline-offset:4px}
@@ -68,7 +68,7 @@ body.home{
 .list{list-style:none; margin:0; padding:0; counter-reset:n}
 .list li{counter-increment:n; display:grid; grid-template-columns:2.5rem 1fr; gap:.25rem 1rem; padding:1.25rem 0; border-top:1px solid var(--rule)}
 .list li:last-child{border-bottom:1px solid var(--rule)}
-.list li::before{content:counter(n,decimal-leading-zero); font-family:"Newsreader",Georgia,serif; color:var(--gold); font-size:1.1rem; grid-row:span 2}
+.list li::before{content:counter(n,decimal-leading-zero); font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif); color:var(--gold); font-size:1.1rem; grid-row:span 2}
 .list a{font-weight:700; color:var(--green); text-decoration:none; font-size:1.1rem}
 .list a:hover{text-decoration:underline; text-underline-offset:4px}
 .list p{margin:0; color:var(--muted)}
@@ -76,9 +76,9 @@ body.home{
 /* Questions */
 .questions{background:var(--paper-2); padding:5rem 1.5rem}
 .questions .inner{max-width:46rem; margin:0 auto}
-.questions h2{font-size:1rem; font-family:"Public Sans",system-ui,sans-serif; font-weight:700; color:var(--muted); margin-bottom:1.5rem}
+.questions h2{font-size:1rem; font-family:var(--text,"Figtree",system-ui,sans-serif); font-weight:700; color:var(--muted); margin-bottom:1.5rem}
 .questions dl{margin:0}
-.questions dt{font-family:"Newsreader",Georgia,serif; font-size:clamp(1.4rem,2.8vw,1.85rem); color:var(--green); line-height:1.2; margin-top:2rem}
+.questions dt{font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif); font-size:clamp(1.4rem,2.8vw,1.85rem); color:var(--green); line-height:1.2; margin-top:2rem}
 .questions dt:first-of-type{margin-top:0}
 .questions dd{margin:.5rem 0 0; color:var(--ink)}
 
@@ -87,14 +87,14 @@ body.home{
 .safety .kicker{font-size:.95rem; color:var(--gold); font-weight:700; margin:0 0 .5rem}
 .safety h2{font-size:clamp(1.8rem,3.4vw,2.4rem); color:var(--green); line-height:1.15}
 .safety p{color:var(--muted)}
-.rooms{margin:0; padding:0; list-style:none; font-family:"Newsreader",Georgia,serif; font-size:1.35rem; color:var(--green)}
+.rooms{margin:0; padding:0; list-style:none; font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif); font-size:1.35rem; color:var(--green)}
 .rooms li{padding:.7rem 0; border-bottom:1px solid var(--rule); display:flex; justify-content:space-between; gap:1rem}
-.rooms li span{font-family:"Public Sans",system-ui,sans-serif; font-size:.9rem; color:var(--muted)}
+.rooms li span{font-family:var(--text,"Figtree",system-ui,sans-serif); font-size:.9rem; color:var(--muted)}
 
 /* Founder note */
 .note{max-width:40rem; margin:0 auto; padding:2rem 1.5rem 5rem}
-.note h2{font-size:1rem; font-family:"Public Sans",system-ui,sans-serif; font-weight:700; color:var(--muted); margin-bottom:1rem}
-.note p{font-family:"Newsreader",Georgia,serif; font-size:1.3rem; line-height:1.55}
+.note h2{font-size:1rem; font-family:var(--text,"Figtree",system-ui,sans-serif); font-weight:700; color:var(--muted); margin-bottom:1rem}
+.note p{font-family:var(--display,"Bricolage Grotesque",system-ui,sans-serif); font-size:1.3rem; line-height:1.55}
 .note .sig{font-style:italic; color:var(--green); margin-top:1.25rem}
 
 /* Close */
