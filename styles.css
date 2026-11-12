@@ -286,5 +286,4 @@
 @media (prefers-reduced-motion:reduce){*{transition:none !important}}
 .questions.spaced{margin-top:4rem}
 .price-card .eyebrow{margin:0}
-.home a.cta{color:var(--on-green)}
 .plus-feature-note > div{flex:1 1 12rem; min-width:0}
